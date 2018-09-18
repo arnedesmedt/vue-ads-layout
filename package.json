@@ -34,11 +34,7 @@
     "vue-template-compiler": "^2.5.17"
   },
   "description": "A Vue plugin to quickly generate a webapplication layout.",
-  "keywords": [
-    "vue",
-    "component",
-    "app-layout"
-  ],
+  "main": "./dist/vue-ads-layout.common.js",
   "files": [
     "/dist"
   ],
@@ -52,5 +48,9 @@
   "homepage": "https://gitlab.com/arnedesmedt/vue-ads-layout",
   "author": "Arne De Smedt <arnedesmdt@gmail.com> (https://twitter.com/ArneSmedt)",
   "license": "MIT",
-  "main": "./dist/vue-ads-layout.common.js"
+  "keywords": [
+    "vue",
+    "component",
+    "app-layout"
+  ]
 }

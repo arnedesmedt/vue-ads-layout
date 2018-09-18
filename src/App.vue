@@ -9,13 +9,13 @@
                 <vue-ads-menu slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu>
                 <vue-ads-menu slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu>
             </vue-ads-bar>
-            <!--<vue-ads-bar-->
-                <!--slot="footer"-->
-                <!--:fixed="false"-->
-                <!--:toolbar="false"-->
-                <!--class="bg-purple"-->
-            <!--&gt;-->
-            <!--</vue-ads-bar>-->
+            <vue-ads-bar
+                slot="footer"
+                :fixed="false"
+                :toolbar="false"
+                class="bg-purple"
+            >
+            </vue-ads-bar>
             <vue-ads-drawer
                 slot="left-drawer"
                 :minified="minifiedLeft"
