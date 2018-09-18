@@ -36,7 +36,7 @@ export default {
             default: 16,
         },
 
-        toolbar: {
+        footer: {
             type: Boolean,
             required: false,
             default: true,
@@ -76,7 +76,7 @@ export default {
         barContainerClasses () {
             let classes = {
                 fixed: this.fixed,
-                'pin-b': !this.toolbar,
+                'pin-b': this.footer,
             };
 
             classes['h-' + this.height] = true;

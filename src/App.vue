@@ -12,7 +12,7 @@
             <vue-ads-bar
                 slot="footer"
                 :fixed="false"
-                :toolbar="false"
+                :footer="true"
                 class="bg-purple"
             >
             </vue-ads-bar>
