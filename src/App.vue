@@ -14,20 +14,20 @@
             ></vue-ads-bar>
             <vue-ads-drawer
                 slot="left-drawer"
-                :minified="minified"
-                :hidden="hidden"
+                :minified="minifiedLeft"
+                :hidden="hiddenLeft"
                 :fixed="true"
-                @minify="minify"
-                @hide="hide"
+                @minify="minifyLeft"
+                @hide="hideLeft"
                 class="bg-yellow"
             ></vue-ads-drawer>
             <vue-ads-drawer
                 slot="right-drawer"
-                :minified="minified"
-                :hidden="hidden"
+                :minified="minifiedRight"
+                :hidden="hiddenRight"
                 :fixed="false"
-                @minify="minify"
-                @hide="hide"
+                @minify="minifyRight"
+                @hide="hideRight"
                 class="bg-blue"
             >
             </vue-ads-drawer>
@@ -53,18 +53,28 @@ export default {
 
     data () {
         return {
-            minified: false,
-            hidden: false,
+            minifiedLeft: false,
+            minifiedRight: false,
+            hiddenLeft: false,
+            hiddenRight: false,
         };
     },
 
     methods: {
-        minify (minified) {
-            this.minified = minified;
+        minifyLeft (minified) {
+            this.minifiedLeft = minified;
         },
 
-        hide (hidden) {
-            this.hidden = hidden;
+        hideLeft (hidden) {
+            this.hiddenLeft = hidden;
+        },
+
+        minifyRight (minified) {
+            this.minifiedRight = minified;
+        },
+
+        hideRight (hidden) {
+            this.hiddenRight = hidden;
         },
     },
 };
