@@ -18,8 +18,7 @@ export default {
     props: {
         minified: {
             type: Boolean,
-            required: false,
-            default: false,
+            required: true,
         },
 
         right: {

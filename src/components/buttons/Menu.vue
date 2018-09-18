@@ -15,8 +15,7 @@ export default {
     props: {
         hidden: {
             type: Boolean,
-            required: false,
-            default: true,
+            required: true,
         },
     },
 
