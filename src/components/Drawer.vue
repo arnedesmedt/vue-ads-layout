@@ -1,14 +1,20 @@
 <template>
     <div
-        class="h-full bg-green overflow-x-hidden transition"
+        class="h-full overflow-x-hidden transition"
         :class="drawerClasses"
     >
         <div
             class="flex flex-col h-full overflow-x-hidden"
             :class="drawerContainerClasses"
         >
-            <div class="flex-grow w-full">Navigation</div>
-            <div class="w-full">Button</div>
+            <slot>
+                <div class="flex-grow w-full">
+                    <slot name="navigation"></slot>
+                </div>
+                <div class="w-full">
+                    <slot name="bottom"></slot>
+                </div>
+            </slot>
         </div>
     </div>
 </template>

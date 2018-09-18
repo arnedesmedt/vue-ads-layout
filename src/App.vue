@@ -1,14 +1,16 @@
 <template>
     <div id="app">
-        <vue-ads-layout :full-bar="false">
+        <vue-ads-layout :full-bar="true">
             <vue-ads-bar
                 slot="toolbar"
                 :fixed="true"
+                class="bg-red"
             ></vue-ads-bar>
             <vue-ads-bar
                 slot="footer"
-                :fixed="true"
+                :fixed="false"
                 :toolbar="false"
+                class="bg-purple"
             ></vue-ads-bar>
             <vue-ads-drawer
                 slot="left-drawer"
@@ -17,6 +19,7 @@
                 :fixed="true"
                 @minify="minify"
                 @hide="hide"
+                class="bg-yellow"
             ></vue-ads-drawer>
             <vue-ads-drawer
                 slot="right-drawer"
@@ -25,6 +28,7 @@
                 :fixed="false"
                 @minify="minify"
                 @hide="hide"
+                class="bg-blue"
             >
             </vue-ads-drawer>
         </vue-ads-layout>

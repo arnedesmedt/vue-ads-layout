@@ -12,7 +12,7 @@
             </slot>
         </div>
         <div
-            class="flex-grow flex bg-yellow"
+            class="flex-grow flex"
             :class="middleClasses"
         >
             <div>
@@ -99,7 +99,7 @@
                 </slot>
             </div>
         </div>
-        <div class="bg-blue">
+        <div>
             <slot v-if="fullBar" name="footer">
 
             </slot>
