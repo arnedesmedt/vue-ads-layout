@@ -46,10 +46,10 @@
 import './assets/css/packages.css';
 
 import VueAdsLayout from './components/Layout';
-import VueAdsBar from "./components/Bar";
-import VueAdsDrawer from "./components/Drawer";
-import VueAdsMenu from "./components/buttons/Menu";
-import VueAdsMinify from "./components/buttons/Minify";
+import VueAdsBar from './components/Bar';
+import VueAdsDrawer from './components/Drawer';
+import VueAdsMenu from './components/buttons/Menu';
+import VueAdsMinify from './components/buttons/Minify';
 
 export default {
     name: 'app',

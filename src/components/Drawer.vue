@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    name: "VueAdsDrawer",
+    name: 'VueAdsDrawer',
 
     props: {
         fixed: {
@@ -53,7 +53,7 @@ export default {
             required: false,
             default () {
                 return ['all', 'sm'];
-            }
+            },
         },
 
         responsiveHide: {
@@ -61,7 +61,7 @@ export default {
             required: false,
             default () {
                 return ['all'];
-            }
+            },
         },
 
         minifiedWidth: {
@@ -102,7 +102,7 @@ export default {
             ) {
                 this.$emit('hide', this.responsiveHide.includes(window));
             }
-        }
+        },
     },
 
     computed: {
@@ -166,9 +166,9 @@ export default {
 
         handleWindow (window) {
             this.window = window;
-        }
+        },
     },
-}
+};
 </script>
 
 <style scoped>

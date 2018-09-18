@@ -163,28 +163,28 @@ export default {
             return {
                 'flex-row': this.fullBar,
                 'flex-col': !this.fullBar,
-            }
+            };
         },
     },
 
     methods: {
         resizeWindow () {
             switch (true) {
-                case window.innerWidth < 576:
-                    this.window = 'all';
-                    break;
-                case window.innerWidth < 768:
-                    this.window = 'sm';
-                    break;
-                case window.innerWidth < 992:
-                    this.window = 'md';
-                    break;
-                case window.innerWidth < 1200:
-                    this.window = 'lg';
-                    break;
-                default:
-                    this.window = 'xl';
-                    break;
+            case window.innerWidth < 576:
+                this.window = 'all';
+                break;
+            case window.innerWidth < 768:
+                this.window = 'sm';
+                break;
+            case window.innerWidth < 992:
+                this.window = 'md';
+                break;
+            case window.innerWidth < 1200:
+                this.window = 'lg';
+                break;
+            default:
+                this.window = 'xl';
+                break;
             }
         },
 
@@ -197,7 +197,7 @@ export default {
                     this[child.$vnode.data.slot] = {
                         height: child.$props.height,
                         fixed: child.$props.fixed,
-                    }
+                    };
                 });
 
             this.updateChildren();
@@ -217,7 +217,7 @@ export default {
                     child.handleWindow(window);
                 }
             });
-        }
-    }
+        },
+    },
 };
 </script>

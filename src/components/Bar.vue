@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    name: "VueAdsBar",
+    name: 'VueAdsBar',
 
     props: {
         fixed: {
@@ -51,7 +51,7 @@ export default {
     data () {
         return {
             staticClass: null,
-        }
+        };
     },
 
     watch: {
@@ -94,6 +94,6 @@ export default {
         zIndex () {
             return this.$parent.$props.fullBar ? 50 : 40;
         },
-    }
-}
+    },
+};
 </script>
