@@ -80,6 +80,12 @@ export default {
                 fixed: null,
                 height: null,
             },
+            'left-drawer': {
+                width: null,
+            },
+            'right-drawer': {
+                width: null,
+            },
             window: null,
         };
     },
@@ -130,13 +136,23 @@ export default {
         updateChildrenData () {
             this.$children
                 .filter(child => {
-                    return child.$options.name === 'VueAdsBar';
+                    return ['VueAdsBar', 'VueAdsDrawer'].includes(child.$options.name);
                 })
                 .forEach(child => {
-                    this[child.$vnode.data.slot] = {
-                        height: child.$props.height,
-                        fixed: child.$props.fixed,
-                    };
+                    let data = {};
+
+                    if (child.$options.name === 'VueAdsBar') {
+                        data = {
+                            height: child.$props.height,
+                            fixed: child.$props.fixed,
+                        };
+                    } else {
+                        data = {
+                            width: child.currentWidth,
+                        };
+                    }
+
+                    this[child.$vnode.data.slot] = data;
                 });
 
             this.updateChildren();

@@ -4,7 +4,7 @@
         :class="barClasses"
     >
         <div
-            class="w-full flex flex-col justify-center"
+            class="flex flex-col justify-center transition"
             :class="barContainerClasses"
         >
             <slot>
@@ -51,6 +51,12 @@ export default {
     data () {
         return {
             staticClass: null,
+            leftDrawer: {
+                width: null,
+            },
+            rightDrawer: {
+                width: null,
+            },
         };
     },
 
@@ -77,8 +83,11 @@ export default {
             let classes = {
                 fixed: this.fixed,
                 'pin-b': this.footer,
+                'w-full': !this.fixed || this.$parent.$props.fullBar,
             };
 
+            classes['inset-l-' + this.leftDrawer.width] = this.fixed && !this.$parent.$props.fullBar;
+            classes['inset-r-' + this.rightDrawer.width] = this.fixed && !this.$parent.$props.fullBar;
             classes['h-' + this.height] = true;
             classes['z-' + this.zIndex] = true;
 
@@ -95,5 +104,21 @@ export default {
             return this.$parent.$props.fullBar ? 50 : 40;
         },
     },
+
+    methods: {
+        handleSiblingData () {
+            this.leftDrawer = this.$parent.$data['left-drawer'];
+            this.rightDrawer = this.$parent.$data['right-drawer'];
+        },
+    },
 };
 </script>
+
+<style scoped>
+    .transition {
+        transition: left 0.2s, right 0.2s;
+        -webkit-transition: left 0.2s, right 0.2s;
+        -moz-transition: left 0.2s, right 0.2s;
+        -o-transition: left 0.2s, right 0.2s;
+    }
+</style>

@@ -1,5 +1,9 @@
 ## Changelog
 
+#### v1.1.2 - 2018/09/19
+
+- The fixed bars were overlapping the drawers in non-full-bar mode. I added a fix for that bug.
+
 #### v1.1.1 - 2018/09/19
 
 - Remove the application content from the default slot
