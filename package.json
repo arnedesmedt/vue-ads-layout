@@ -29,7 +29,7 @@
     "postcss-url": "*",
     "tailwindcss": "*",
     "vue-cli-plugin-ads-package-json": "latest",
-    "vue-cli-plugin-ads-packages": "latest",
+    "vue-cli-plugin-ads-packages": "^1.0.4",
     "vue-cli-plugin-ads-readme": "latest",
     "vue-template-compiler": "^2.5.17"
   },
