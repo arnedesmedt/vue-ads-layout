@@ -9,13 +9,13 @@
                 <vue-ads-menu slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu>
                 <vue-ads-menu slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu>
             </vue-ads-bar>
-            <vue-ads-bar
-                slot="footer"
-                :fixed="false"
-                :footer="true"
-                class="bg-green"
-            >
-            </vue-ads-bar>
+            <!--<vue-ads-bar-->
+                <!--slot="footer"-->
+                <!--:fixed="false"-->
+                <!--:footer="true"-->
+                <!--class="bg-green"-->
+            <!--&gt;-->
+            <!--</vue-ads-bar>-->
             <vue-ads-drawer
                 slot="left-drawer"
                 :minified="minifiedLeft"
@@ -27,17 +27,17 @@
             >
                 <vue-ads-minify slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify>
             </vue-ads-drawer>
-            <vue-ads-drawer
-                slot="right-drawer"
-                :minified="minifiedRight"
-                :hidden="hiddenRight"
-                :fixed="false"
-                @minify="minifyRight"
-                @hide="hideRight"
-                class="bg-blue"
-            >
-                <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
-            </vue-ads-drawer>
+            <!--<vue-ads-drawer-->
+                <!--slot="right-drawer"-->
+                <!--:minified="minifiedRight"-->
+                <!--:hidden="hiddenRight"-->
+                <!--:fixed="false"-->
+                <!--@minify="minifyRight"-->
+                <!--@hide="hideRight"-->
+                <!--class="bg-blue"-->
+            <!--&gt;-->
+                <!--<vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>-->
+            <!--</vue-ads-drawer>-->
 
             start<br/>
             test<br/>

@@ -74,17 +74,17 @@ export default {
         return {
             toolbar: {
                 fixed: null,
-                height: null,
+                height: 0,
             },
             footer: {
                 fixed: null,
-                height: null,
+                height: 0,
             },
             'left-drawer': {
-                width: null,
+                width: 0,
             },
             'right-drawer': {
-                width: null,
+                width: 0,
             },
             window: null,
         };
