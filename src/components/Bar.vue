@@ -39,7 +39,7 @@ export default {
         footer: {
             type: Boolean,
             required: false,
-            default: true,
+            default: false,
         },
     },
 
