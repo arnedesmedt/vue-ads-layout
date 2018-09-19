@@ -110,7 +110,6 @@ export default {
             let classes = {};
 
             classes['w-' + this.currentWidth] = true;
-            classes['-ml-' + this.currentWidth] = this.hidden;
             classes['z-' + this.zIndex] = true;
 
             return classes;
