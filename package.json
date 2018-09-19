@@ -29,6 +29,7 @@
     "postcss-import": "*",
     "postcss-url": "*",
     "tailwindcss": "*",
+    "tailwindcss-inset": "^1.0.0",
     "vue-cli-plugin-ads-package-json": "latest",
     "vue-cli-plugin-ads-packages": "^1.0.4",
     "vue-cli-plugin-ads-readme": "latest",

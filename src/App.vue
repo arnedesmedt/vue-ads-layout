@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <vue-ads-layout :full-bar="true">
+        <vue-ads-layout :full-bar="false">
             <vue-ads-bar
                 slot="toolbar"
                 :fixed="true"
@@ -39,7 +39,62 @@
                 <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
             </vue-ads-drawer>
 
-            test
+            start<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            test<br/>
+            end<br/>
 
         </vue-ads-layout>
     </div>

@@ -12,6 +12,8 @@ module.exports = {
                 /^z-\d{1,3}$/,
                 /^pt-\d{1,3}$/,
                 /^pb-\d{1,3}$/,
+                /^inset-l-\d{1,3}$/,
+                /^inset-r-\d{1,3}$/,
             ],
         },
         'postcss-import': {},

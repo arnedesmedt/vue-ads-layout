@@ -103,6 +103,10 @@ export default {
                 this.$emit('hide', this.responsiveHide.includes(window));
             }
         },
+
+        currentWidth (width) {
+            this.$parent.updateChildrenData();
+        },
     },
 
     computed: {
