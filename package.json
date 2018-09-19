@@ -1,6 +1,6 @@
 {
   "name": "vue-ads-layout",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -16,6 +16,7 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.0.1",
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-plugin-unit-jest": "^3.0.1",
@@ -29,7 +30,7 @@
     "postcss-url": "*",
     "tailwindcss": "*",
     "vue-cli-plugin-ads-package-json": "latest",
-    "vue-cli-plugin-ads-packages": "latest",
+    "vue-cli-plugin-ads-packages": "^1.0.4",
     "vue-cli-plugin-ads-readme": "latest",
     "vue-template-compiler": "^2.5.17"
   },

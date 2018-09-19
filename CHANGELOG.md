@@ -1,5 +1,10 @@
 ## Changelog
 
+#### v1.1.0 - 2018/09/19
+
+- Add css to the package
+- Add purge css to minimize the css files
+
 #### v1.0.2 - 2018/09/19
 
 - Update the changelog
