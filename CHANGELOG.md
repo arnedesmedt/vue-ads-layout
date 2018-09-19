@@ -1,5 +1,12 @@
 ## Changelog
 
+#### v1.1.3 - 2018/09/19
+
+- Dimensions are saved in the Layout component. They were by default null.
+But it has to be 0 if the component is not used.
+- Add the demo JSFiddle.
+
+
 #### v1.1.2 - 2018/09/19
 
 - The fixed bars were overlapping the drawers in non-full-bar mode. I added a fix for that bug.
