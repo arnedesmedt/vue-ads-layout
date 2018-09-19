@@ -8,6 +8,10 @@ The left and right drawers can be minified or hidden by buttons or by resizing t
 
 I also added two default buttons to hide and minify the drawers.
 
+## Demo
+
+I've written a demo in [JSFiddle](https://jsfiddle.net/arnedesmedt/h35yqLxb)
+
 ## Installation
 
 You can install the package via npm or yarn.
