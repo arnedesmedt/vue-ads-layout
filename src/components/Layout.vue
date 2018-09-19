@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-full min-h-screen flex bg-grey-lighter"
+        class="w-full min-h-screen flex"
         :class="layoutClasses"
     >
         <div class="">

@@ -1,5 +1,9 @@
 ## Changelog
 
+#### v1.1.4 - 2018/09/19
+
+- Don't require default styling classes in the buttons and layout.
+
 #### v1.1.3 - 2018/09/19
 
 - Dimensions are saved in the Layout component. They were by default null.

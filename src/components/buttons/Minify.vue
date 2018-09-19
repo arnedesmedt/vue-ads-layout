@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-full text-center py-3 cursor-pointer"
+        class="cursor-pointer"
         @click="toggle"
     >
         <i

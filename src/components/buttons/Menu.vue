@@ -1,6 +1,6 @@
 <template>
     <div
-        class="h-full text-center px-3 w-16 cursor-pointer flex flex-col justify-center"
+        class="cursor-pointer"
         title=""
         @click="toggle"
     >
