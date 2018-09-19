@@ -13,7 +13,7 @@
                 slot="footer"
                 :fixed="false"
                 :footer="true"
-                class="bg-purple"
+                class="bg-green"
             >
             </vue-ads-bar>
             <vue-ads-drawer
