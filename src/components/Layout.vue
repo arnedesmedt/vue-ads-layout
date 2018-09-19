@@ -27,67 +27,6 @@
                 class="flex-grow"
             >
                 <slot>
-                    Start dit is een zin om te kijken of ze niet onder de rechter drawer loopt.<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    content<br/>
-                    Einde<br/>
                 </slot>
             </div>
             <div>

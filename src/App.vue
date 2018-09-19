@@ -38,6 +38,9 @@
             >
                 <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
             </vue-ads-drawer>
+
+            test
+
         </vue-ads-layout>
     </div>
 </template>
