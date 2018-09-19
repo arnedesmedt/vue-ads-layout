@@ -65,6 +65,9 @@ Usage introduction
             >
                 <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
             </vue-ads-drawer>
+            
+            My content
+            
         </vue-ads-layout>
     </div>
 </template>
@@ -152,6 +155,12 @@ The left/right-drawer template is used to define the left/right drawer. Use the 
 <vue-ads-drawer slot="left-drawer"></vue-ads-drawer>
 <vue-ads-drawer slot="right-drawer"></vue-ads-drawer>
 ```
+
+###### default
+
+This is the most important template. Here you place your application content.
+
+Just add it as a child element between the `vue-ads-layout` tags.
 
 #### VueAdsBar
 

@@ -1,5 +1,9 @@
 ## Changelog
 
+#### v1.1.1 - 2018/09/19
+
+- Remove the application content from the default slot
+
 #### v1.1.0 - 2018/09/19
 
 - Add css to the package
