@@ -224,6 +224,14 @@ where the drawer has to be hidden.
  - use the predefined 2 rows template: `top`, `bottom`.
  This method uses the flex css style, where the top template has a flex-grow attribute.
  
+ All the slots (default, top and bottom) are scoped with the following variables:
+ 
+ - `fixed`: *(type: boolean)* Indicates if the drawer is positioned fixed.
+ - `minified`: *(type: boolean)* Indicates if the drawer is minified.
+ - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
+ - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
+ - `width`: *(type: number)* the current numeric [tailwindcss width](https://tailwindcss.com/docs/width)
+ 
  For example if you want to use the VueAdsMinify button on the bottom of the bar to minify it,
  use the following template.
  
