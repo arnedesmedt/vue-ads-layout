@@ -1,5 +1,12 @@
 ## Changelog
 
+#### v1.2.0 - 2018/09/20
+
+- Make the drawer slots scoped with the fixed, width, minified and hidden parameters.
+- Adding default slots in the buttons.
+- drawer slot navigation renamed to top. Now you have 3 slots in drawer: default, top and bottom. This is more consistent.
+- Remove `overflow-x: hidden` from the drawer component.
+
 #### v1.1.4 - 2018/09/19
 
 - Don't require default styling classes in the buttons and layout.
