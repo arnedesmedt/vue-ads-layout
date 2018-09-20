@@ -9,7 +9,7 @@
         >
             <slot>
                 <div class="flex-grow w-full">
-                    <slot name="navigation"></slot>
+                    <slot name="top"></slot>
                 </div>
                 <div class="w-full">
                     <slot name="bottom"></slot>

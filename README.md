@@ -221,8 +221,8 @@ where the drawer has to be hidden.
  
  There are 2 possibilities for using the drawer templates: 
  - overriding the default template with a custom template.
- - use the predefined 2 rows template: `navigation`, `bottom`.
- This method uses the flex css style, where the navigation template has a flex-grow attribute.
+ - use the predefined 2 rows template: `top`, `bottom`.
+ This method uses the flex css style, where the top template has a flex-grow attribute.
  
  For example if you want to use the VueAdsMinify button on the bottom of the bar to minify it,
  use the following template.
