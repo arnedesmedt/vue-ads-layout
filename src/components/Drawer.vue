@@ -1,18 +1,35 @@
 <template>
     <div
-        class="h-full overflow-x-hidden transition"
+        class="h-full transition"
         :class="drawerClasses"
     >
         <div
-            class="flex flex-col h-full overflow-x-hidden"
+            class="flex flex-col h-full"
             :class="drawerContainerClasses"
         >
-            <slot>
+            <slot
+                :fixed="fixed"
+                :minified="minified"
+                :hidden="hidden"
+                :width="currentWidth"
+            >
                 <div class="flex-grow w-full">
-                    <slot name="navigation"></slot>
+                    <slot
+                        name="top"
+                        :fixed="fixed"
+                        :minified="minified"
+                        :hidden="hidden"
+                        :width="currentWidth"
+                    ></slot>
                 </div>
                 <div class="w-full">
-                    <slot name="bottom"></slot>
+                    <slot
+                        name="bottom"
+                        :fixed="fixed"
+                        :minified="minified"
+                        :hidden="hidden"
+                        :width="currentWidth"
+                    ></slot>
                 </div>
             </slot>
         </div>

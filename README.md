@@ -26,7 +26,7 @@ You can install the package via npm or yarn.
 
 ## Usage
 
-Usage introduction
+Here you can find a simple example on how to use this layout component.
 
 ```vue
 <template>
@@ -77,7 +77,7 @@ Usage introduction
 </template>
 
 <script>
-import './assets/css/packages.css';
+import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenu, VueAdsMinify } from 'vue-ads-layout';
 
@@ -221,8 +221,16 @@ where the drawer has to be hidden.
  
  There are 2 possibilities for using the drawer templates: 
  - overriding the default template with a custom template.
- - use the predefined 2 rows template: `navigation`, `bottom`.
- This method uses the flex css style, where the navigation template has a flex-grow attribute.
+ - use the predefined 2 rows template: `top`, `bottom`.
+ This method uses the flex css style, where the top template has a flex-grow attribute.
+ 
+ All the slots (default, top and bottom) are scoped with the following variables:
+ 
+ - `fixed`: *(type: boolean)* Indicates if the drawer is positioned fixed.
+ - `minified`: *(type: boolean)* Indicates if the drawer is minified.
+ - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
+ - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
+ - `width`: *(type: number)* the current numeric [tailwindcss width](https://tailwindcss.com/docs/width)
  
  For example if you want to use the VueAdsMinify button on the bottom of the bar to minify it,
  use the following template.
@@ -244,7 +252,17 @@ A menu button that can be used to open or close the drawers.
 - `toggle`: Emitted if the button is clicked.
     - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
     
-## VueAdsMinify
+##### Templates
+
+You can add a default template to override the default icon.
+
+```vue
+<vue-ads-menu :hidden="false">
+   <i class="fa fa-check"></i>
+</vue-ads-menu>
+ ```
+    
+#### VueAdsMinify
 
 A minify button that can be used to minify the drawers.
 
@@ -258,8 +276,16 @@ If so the arrows are flipped.
 
 - `toggle`: Emitted if the button is clicked.
     - `minified`: *(type: boolean)* Indicates if the drawer is minified.
- 
- 
+    
+##### Templates
+
+You can add a default template to override the default icon.
+
+```vue
+<vue-ads-minify :minified="false">
+   <i class="fa fa-check"></i>
+</vue-ads-minify>
+ ```
         
 
 ## Testing
