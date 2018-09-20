@@ -1,10 +1,10 @@
 <template>
     <div
-        class="h-full overflow-x-hidden transition"
+        class="h-full transition"
         :class="drawerClasses"
     >
         <div
-            class="flex flex-col h-full overflow-x-hidden"
+            class="flex flex-col h-full"
             :class="drawerContainerClasses"
         >
             <slot>
