@@ -1,10 +1,11 @@
 <template>
     <div
         class="cursor-pointer"
-        title=""
         @click="toggle"
     >
-        <i class="fa fa-bars"></i>
+        <slot>
+            <i class="fa fa-bars"></i>
+        </slot>
     </div>
 </template>
 

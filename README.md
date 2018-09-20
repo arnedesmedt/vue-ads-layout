@@ -244,7 +244,17 @@ A menu button that can be used to open or close the drawers.
 - `toggle`: Emitted if the button is clicked.
     - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
     
-## VueAdsMinify
+##### Templates
+
+You can add a default template to override the default icon.
+
+```vue
+<vue-ads-menu :hidden="false">
+   <i class="fa fa-check"></i>
+</vue-ads-menu>
+ ```
+    
+#### VueAdsMinify
 
 A minify button that can be used to minify the drawers.
 
@@ -258,8 +268,16 @@ If so the arrows are flipped.
 
 - `toggle`: Emitted if the button is clicked.
     - `minified`: *(type: boolean)* Indicates if the drawer is minified.
- 
- 
+    
+##### Templates
+
+You can add a default template to override the default icon.
+
+```vue
+<vue-ads-minify :minified="false">
+   <i class="fa fa-check"></i>
+</vue-ads-minify>
+ ```
         
 
 ## Testing

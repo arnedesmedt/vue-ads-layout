@@ -3,11 +3,13 @@
         class="cursor-pointer"
         @click="toggle"
     >
-        <i
-            class="fa"
-            :class="iconClasses"
-        >
-        </i>
+        <slot>
+            <i
+                class="fa"
+                :class="iconClasses"
+            >
+            </i>
+        </slot>
     </div>
 </template>
 
