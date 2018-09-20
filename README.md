@@ -26,7 +26,7 @@ You can install the package via npm or yarn.
 
 ## Usage
 
-Usage introduction
+Here you can find a simple example on how to use this layout component.
 
 ```vue
 <template>
@@ -77,7 +77,7 @@ Usage introduction
 </template>
 
 <script>
-import './assets/css/packages.css';
+import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenu, VueAdsMinify } from 'vue-ads-layout';
 
