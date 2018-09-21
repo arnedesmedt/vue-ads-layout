@@ -6,8 +6,8 @@
                 :fixed="true"
                 class="bg-red"
             >
-                <vue-ads-menu slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu>
-                <vue-ads-menu slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu>
+                <vue-ads-menu-button slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu-button>
+                <vue-ads-menu-button slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu-button>
             </vue-ads-bar>
             <!--<vue-ads-bar-->
                 <!--slot="footer"-->
@@ -26,7 +26,7 @@
                 class="bg-yellow"
             >
                 <div slot="top">Navigation</div>
-                <vue-ads-minify slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify>
+                <vue-ads-minify-button slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify-button>
             </vue-ads-drawer>
             <vue-ads-drawer
                 slot="right-drawer"
@@ -38,7 +38,7 @@
                 class="bg-blue"
             >
                 <div slot="top">Navigation</div>
-                <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
+                <vue-ads-minify-button slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify-button>
             </vue-ads-drawer>
 
             start<br/>
@@ -108,15 +108,15 @@ import './assets/css/packages.css';
 import VueAdsLayout from './components/Layout';
 import VueAdsBar from './components/Bar';
 import VueAdsDrawer from './components/Drawer';
-import VueAdsMenu from './components/buttons/Menu';
-import VueAdsMinify from './components/buttons/Minify';
+import VueAdsMenuButton from './components/buttons/Menu';
+import VueAdsMinifyButton from './components/buttons/Minify';
 
 export default {
     name: 'app',
 
     components: {
-        VueAdsMinify,
-        VueAdsMenu,
+        VueAdsMinifyButton,
+        VueAdsMenuButton,
         VueAdsDrawer,
         VueAdsBar,
         VueAdsLayout,
