@@ -101,6 +101,7 @@ export default {
             },
 
             window: null,
+            right: this.$vnode.data.slot.includes('right'),
         };
     },
 
@@ -124,6 +125,10 @@ export default {
         currentWidth (width) {
             this.$parent.updateChildrenData();
         },
+
+        hidden (hidden) {
+            this.$parent.updateChildrenData();
+        },
     },
 
     computed: {
@@ -132,6 +137,8 @@ export default {
 
             classes['w-' + this.currentWidth] = true;
             classes['z-' + this.zIndex] = true;
+            classes['-ml-' + this.currentWidth] = this.hidden && !this.right;
+            classes['-mr-' + this.currentWidth] = this.hidden && this.right;
 
             return classes;
         },
@@ -150,10 +157,6 @@ export default {
         },
 
         currentWidth () {
-            if (this.hidden) {
-                return 0;
-            }
-
             return this.minified ? this.minifiedWidth : this.width;
         },
 
@@ -193,9 +196,9 @@ export default {
 
 <style scoped>
 .transition {
-    transition: width 0.2s;
-    -webkit-transition: width 0.2s;
-    -moz-transition: width 0.2s;
-    -o-transition: width 0.2s;
+    transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
+    -webkit-transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
+    -moz-transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
+    -o-transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
 }
 </style>
