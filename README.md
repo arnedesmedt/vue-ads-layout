@@ -37,8 +37,8 @@ Here you can find a simple example on how to use this layout component.
                 :fixed="true"
                 class="bg-red"
             >
-                <vue-ads-menu slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu>
-                <vue-ads-menu slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu>
+                <vue-ads-menu-button slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu-button>
+                <vue-ads-menu-button slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu-button>
             </vue-ads-bar>
             <vue-ads-bar
                 slot="footer"
@@ -56,7 +56,7 @@ Here you can find a simple example on how to use this layout component.
                 @hide="hideLeft"
                 class="bg-yellow"
             >
-                <vue-ads-minify slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify>
+                <vue-ads-minify-button slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify-button>
             </vue-ads-drawer>
             <vue-ads-drawer
                 slot="right-drawer"
@@ -67,7 +67,7 @@ Here you can find a simple example on how to use this layout component.
                 @hide="hideRight"
                 class="bg-blue"
             >
-                <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
+                <vue-ads-minify-button slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify-button>
             </vue-ads-drawer>
             
             My content
@@ -79,14 +79,14 @@ Here you can find a simple example on how to use this layout component.
 <script>
 import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
-import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenu, VueAdsMinify } from 'vue-ads-layout';
+import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton, VueAdsMinifyButton } from 'vue-ads-layout';
 
 export default {
     name: 'app',
 
     components: {
-        VueAdsMinify,
-        VueAdsMenu,
+        VueAdsMinifyButton,
+        VueAdsMenuButton,
         VueAdsDrawer,
         VueAdsBar,
         VueAdsLayout,
@@ -184,12 +184,12 @@ There are 2 possibilities for using the bar templates:
 - use the predefined 3 column template: `first`, `middle`, `last`.
 This method uses the flex css style, where the middle template has a flex-grow attribute.
 
-For example if you want to use the VueAdsMenu buttons on the left/right position of the bar,
+For example if you want to use the VueAdsMenuButton buttons on the left/right position of the bar,
 use the following templates.
 
 ```vue
-<vue-ads-menu slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu>
-<vue-ads-menu slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu>
+<vue-ads-menu-button slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu-button>
+<vue-ads-menu-button slot="last" :hidden="hiddenRight" @toggle="hideRight"></vue-ads-menu-button>
 ```
 
 #### VueAdsDrawer
@@ -232,14 +232,14 @@ where the drawer has to be hidden.
  - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
  - `width`: *(type: number)* the current numeric [tailwindcss width](https://tailwindcss.com/docs/width)
  
- For example if you want to use the VueAdsMinify button on the bottom of the bar to minify it,
+ For example if you want to use the VueAdsMinifyButton on the bottom of the bar to minify it,
  use the following template.
  
  ```vue
- <vue-ads-minify slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify>
+ <vue-ads-minify-button slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify-button>
  ```
  
-#### VueAdsMenu
+#### VueAdsMenuButton
 
 A menu button that can be used to open or close the drawers.
 
@@ -257,12 +257,12 @@ A menu button that can be used to open or close the drawers.
 You can add a default template to override the default icon.
 
 ```vue
-<vue-ads-menu :hidden="false">
+<vue-ads-menu-button :hidden="false">
    <i class="fa fa-check"></i>
-</vue-ads-menu>
+</vue-ads-menu-button>
  ```
     
-#### VueAdsMinify
+#### VueAdsMinifyButton
 
 A minify button that can be used to minify the drawers.
 
@@ -282,9 +282,9 @@ If so the arrows are flipped.
 You can add a default template to override the default icon.
 
 ```vue
-<vue-ads-minify :minified="false">
+<vue-ads-minify-button :minified="false">
    <i class="fa fa-check"></i>
-</vue-ads-minify>
+</vue-ads-minify-button>
  ```
         
 

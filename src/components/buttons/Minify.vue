@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: 'VueAdsMinify',
+    name: 'VueAdsMinifyButton',
 
     props: {
         minified: {

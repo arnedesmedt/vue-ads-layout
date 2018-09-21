@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'VueAdsMenu',
+    name: 'VueAdsMenuButton',
 
     props: {
         hidden: {
