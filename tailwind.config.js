@@ -586,6 +586,7 @@ module.exports = {
         '4xl': '90rem',
         '5xl': '100rem',
         full: '100%',
+        screen: '100vw',
     },
 
     /*
@@ -673,6 +674,7 @@ module.exports = {
         20: '5rem',
         24: '6rem',
         32: '8rem',
+        64: '16rem',
     },
 
     /*
@@ -706,6 +708,7 @@ module.exports = {
         20: '5rem',
         24: '6rem',
         32: '8rem',
+        64: '16rem',
     },
 
     /*

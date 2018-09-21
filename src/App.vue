@@ -18,26 +18,28 @@
             <!--</vue-ads-bar>-->
             <vue-ads-drawer
                 slot="left-drawer"
+                :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
-                :fixed="true"
                 @minify="minifyLeft"
                 @hide="hideLeft"
                 class="bg-yellow"
             >
+                <div slot="top">Navigation</div>
                 <vue-ads-minify slot="bottom" :minified="minifiedLeft" @toggle="minifyLeft"></vue-ads-minify>
             </vue-ads-drawer>
-            <!--<vue-ads-drawer-->
-                <!--slot="right-drawer"-->
-                <!--:minified="minifiedRight"-->
-                <!--:hidden="hiddenRight"-->
-                <!--:fixed="false"-->
-                <!--@minify="minifyRight"-->
-                <!--@hide="hideRight"-->
-                <!--class="bg-blue"-->
-            <!--&gt;-->
-                <!--<vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>-->
-            <!--</vue-ads-drawer>-->
+            <vue-ads-drawer
+                slot="right-drawer"
+                :minified="minifiedRight"
+                :hidden="hiddenRight"
+                :fixed="false"
+                @minify="minifyRight"
+                @hide="hideRight"
+                class="bg-blue"
+            >
+                <div slot="top">Navigation</div>
+                <vue-ads-minify slot="bottom" :right="true" :minified="minifiedRight" @toggle="minifyRight"></vue-ads-minify>
+            </vue-ads-drawer>
 
             start<br/>
             test<br/>

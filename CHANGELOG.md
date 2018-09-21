@@ -1,5 +1,10 @@
 ## Changelog
 
+#### v1.2.1 - 2018/09/21
+
+- Change the margins to hide the drawers instead of the width. 
+A width of 0 with overflow-x hidden, doesn't hide the content.
+
 #### v1.2.0 - 2018/09/20
 
 - Make the drawer slots scoped with the fixed, width, minified and hidden parameters.

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-full min-h-screen flex"
+        class="w-full max-w-screen min-h-screen overflow-x-hidden flex"
         :class="layoutClasses"
     >
         <div class="">
@@ -148,7 +148,7 @@ export default {
                         };
                     } else {
                         data = {
-                            width: child.currentWidth,
+                            width: child.$props.hidden ? 0 : child.currentWidth,
                         };
                     }
 
