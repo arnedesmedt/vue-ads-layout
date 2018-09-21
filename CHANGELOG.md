@@ -1,5 +1,9 @@
 ## Changelog
 
+#### v1.2.2 - 2018/09/21
+
+- Add the button suffix to the button components. Because of naming conventions
+
 #### v1.2.1 - 2018/09/21
 
 - Change the margins to hide the drawers instead of the width. 
