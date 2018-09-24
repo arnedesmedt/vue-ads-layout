@@ -115,10 +115,10 @@ export default {
 </script>
 
 <style scoped>
-    .transition {
-        transition: left 0.2s, right 0.2s;
-        -webkit-transition: left 0.2s, right 0.2s;
-        -moz-transition: left 0.2s, right 0.2s;
-        -o-transition: left 0.2s, right 0.2s;
-    }
+.transition {
+    transition: left 0.2s, right 0.2s;
+    -webkit-transition: left 0.2s, right 0.2s;
+    -moz-transition: left 0.2s, right 0.2s;
+    -o-transition: left 0.2s, right 0.2s;
+}
 </style>
