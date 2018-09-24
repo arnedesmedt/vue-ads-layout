@@ -1,50 +1,49 @@
 <template>
     <div
-        class="w-full max-w-screen min-h-screen overflow-x-hidden flex"
         :class="layoutClasses"
+        class="w-full max-w-screen min-h-screen overflow-x-hidden flex"
     >
         <div class="">
-            <slot v-if="fullBar" name="toolbar">
-
-            </slot>
-            <slot v-else name="left-drawer">
-
-            </slot>
+            <slot 
+                v-if="fullBar" 
+                name="toolbar"/>
+            <slot 
+                v-else 
+                name="left-drawer"/>
         </div>
         <div
-            class="flex-grow flex"
             :class="middleClasses"
+            class="flex-grow flex"
         >
             <div>
-                <slot v-if="fullBar" name="left-drawer">
-
-                </slot>
-                <slot v-else name="toolbar">
-
-                </slot>
+                <slot 
+                    v-if="fullBar" 
+                    name="left-drawer"/>
+                <slot 
+                    v-else 
+                    name="toolbar"/>
             </div>
             <div
                 class="flex-grow"
             >
-                <slot>
-                </slot>
+                <slot/>
             </div>
             <div>
-                <slot v-if="fullBar" name="right-drawer">
-
-                </slot>
-                <slot v-else name="footer">
-
-                </slot>
+                <slot 
+                    v-if="fullBar" 
+                    name="right-drawer"/>
+                <slot 
+                    v-else 
+                    name="footer"/>
             </div>
         </div>
         <div>
-            <slot v-if="fullBar" name="footer">
-
-            </slot>
-            <slot v-else name="right-drawer">
-
-            </slot>
+            <slot 
+                v-if="fullBar" 
+                name="footer"/>
+            <slot 
+                v-else 
+                name="right-drawer"/>
         </div>
     </div>
 </template>
@@ -59,15 +58,6 @@ export default {
             required: false,
             default: true,
         },
-    },
-
-    created () {
-        window.addEventListener('resize', this.resizeWindow);
-    },
-
-    mounted () {
-        this.resizeWindow();
-        this.updateChildrenData();
     },
 
     data () {
@@ -90,12 +80,6 @@ export default {
         };
     },
 
-    watch: {
-        window (window) {
-            this.updateWindow(window);
-        },
-    },
-
     computed: {
         layoutClasses () {
             return {
@@ -110,6 +94,21 @@ export default {
                 'flex-col': !this.fullBar,
             };
         },
+    },
+
+    watch: {
+        window (window) {
+            this.updateWindow(window);
+        },
+    },
+
+    created () {
+        window.addEventListener('resize', this.resizeWindow);
+    },
+
+    mounted () {
+        this.resizeWindow();
+        this.updateChildrenData();
     },
 
     methods: {
