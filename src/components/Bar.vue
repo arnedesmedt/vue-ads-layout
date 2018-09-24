@@ -1,18 +1,18 @@
 <template>
     <div
-        class="w-full"
         :class="barClasses"
+        class="w-full"
     >
         <div
-            class="flex flex-col justify-center transition"
             :class="barContainerClasses"
+            class="flex flex-col justify-center transition"
         >
             <slot>
                 <div class="flex">
-                    <div><slot name="first"></slot></div>
-                    <div class="flex-grow"><slot name="middle"></slot></div>
-                    <div><slot name="last"></slot></div>
-                    <slot></slot>
+                    <div><slot name="first"/></div>
+                    <div class="flex-grow"><slot name="middle"/></div>
+                    <div><slot name="last"/></div>
+                    <slot/>
                 </div>
             </slot>
         </div>
@@ -43,11 +43,6 @@ export default {
         },
     },
 
-    created () {
-        this.staticClass = this.$vnode.data.staticClass;
-        this.$vnode.data.staticClass = '';
-    },
-
     data () {
         return {
             staticClass: null,
@@ -58,16 +53,6 @@ export default {
                 width: null,
             },
         };
-    },
-
-    watch: {
-        fixed () {
-            this.$parent.updateChildrenData();
-        },
-
-        height () {
-            this.$parent.updateChildrenData();
-        },
     },
 
     computed: {
@@ -105,6 +90,21 @@ export default {
         },
     },
 
+    watch: {
+        fixed () {
+            this.$parent.updateChildrenData();
+        },
+
+        height () {
+            this.$parent.updateChildrenData();
+        },
+    },
+
+    created () {
+        this.staticClass = this.$vnode.data.staticClass;
+        this.$vnode.data.staticClass = '';
+    },
+
     methods: {
         handleSiblingData () {
             this.leftDrawer = this.$parent.$data['left-drawer'];
@@ -115,10 +115,10 @@ export default {
 </script>
 
 <style scoped>
-    .transition {
-        transition: left 0.2s, right 0.2s;
-        -webkit-transition: left 0.2s, right 0.2s;
-        -moz-transition: left 0.2s, right 0.2s;
-        -o-transition: left 0.2s, right 0.2s;
-    }
+.transition {
+    transition: left 0.2s, right 0.2s;
+    -webkit-transition: left 0.2s, right 0.2s;
+    -moz-transition: left 0.2s, right 0.2s;
+    -o-transition: left 0.2s, right 0.2s;
+}
 </style>

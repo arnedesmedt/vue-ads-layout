@@ -5,10 +5,9 @@
     >
         <slot>
             <i
-                class="fa"
                 :class="iconClasses"
-            >
-            </i>
+                class="fa"
+            />
         </slot>
     </div>
 </template>

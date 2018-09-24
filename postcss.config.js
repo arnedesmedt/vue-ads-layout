@@ -3,7 +3,7 @@ module.exports = {
         autoprefixer: {},
         tailwindcss: './tailwind.config.js',
         '@fullhuman/postcss-purgecss': {
-            content: ['./src/**/*.vue'],
+            content: ['./src/components/*.vue'],
             whitelistPatterns: [
                 /^body$/,
                 /^html$/,

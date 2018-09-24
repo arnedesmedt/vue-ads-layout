@@ -1,11 +1,11 @@
 <template>
     <div
-        class="h-full transition"
         :class="drawerClasses"
+        class="h-full transition"
     >
         <div
-            class="flex flex-col h-full"
             :class="drawerContainerClasses"
+            class="flex flex-col h-full"
         >
             <slot
                 :fixed="fixed"
@@ -15,21 +15,21 @@
             >
                 <div class="flex-grow w-full">
                     <slot
-                        name="top"
                         :fixed="fixed"
                         :minified="minified"
                         :hidden="hidden"
                         :width="currentWidth"
-                    ></slot>
+                        name="top"
+                    />
                 </div>
                 <div class="w-full">
                     <slot
-                        name="bottom"
                         :fixed="fixed"
                         :minified="minified"
                         :hidden="hidden"
                         :width="currentWidth"
-                    ></slot>
+                        name="bottom"
+                    />
                 </div>
             </slot>
         </div>
@@ -105,32 +105,6 @@ export default {
         };
     },
 
-    watch: {
-        window (window) {
-            if (
-                this.responsiveMinify.length > 0 &&
-                this.responsiveMinify.includes(window) !== this.minified
-            ) {
-                this.$emit('minify', this.responsiveMinify.includes(window));
-            }
-
-            if (
-                this.responsiveHide.length > 0 &&
-                this.responsiveHide.includes(window) !== this.hidden
-            ) {
-                this.$emit('hide', this.responsiveHide.includes(window));
-            }
-        },
-
-        currentWidth (width) {
-            this.$parent.updateChildrenData();
-        },
-
-        hidden (hidden) {
-            this.$parent.updateChildrenData();
-        },
-    },
-
     computed: {
         drawerClasses () {
             let classes = {};
@@ -178,6 +152,32 @@ export default {
 
         zIndex () {
             return this.$parent.$props.fullBar ? 40 : 50;
+        },
+    },
+
+    watch: {
+        window (window) {
+            if (
+                this.responsiveMinify.length > 0 &&
+                this.responsiveMinify.includes(window) !== this.minified
+            ) {
+                this.$emit('minify', this.responsiveMinify.includes(window));
+            }
+
+            if (
+                this.responsiveHide.length > 0 &&
+                this.responsiveHide.includes(window) !== this.hidden
+            ) {
+                this.$emit('hide', this.responsiveHide.includes(window));
+            }
+        },
+
+        currentWidth (width) {
+            this.$parent.updateChildrenData();
+        },
+
+        hidden (hidden) {
+            this.$parent.updateChildrenData();
         },
     },
 

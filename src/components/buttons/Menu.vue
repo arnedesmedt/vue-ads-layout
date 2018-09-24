@@ -4,7 +4,7 @@
         @click="toggle"
     >
         <slot>
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars"/>
         </slot>
     </div>
 </template>
@@ -27,7 +27,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-
-</style>

@@ -9,4 +9,4 @@ If you would like to contribute to the current project, follow these rules:
  - Update the [README.md](README.md) file if necessary.
  - Update the [CHANGELOG.md](CHANGELOG.md) if necessary.
  
-Do you want to start now? Check the [issues tab](https://gitlab.com/arnedesmedt/vue-ads-layout/issues) in gitlab, fork and start coding!
+Do you want to start now? Check the [issues tab](https://github.com/arnedesmedt/vue-ads-layout/issues) in gitlab, fork and start coding!

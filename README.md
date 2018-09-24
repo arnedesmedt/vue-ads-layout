@@ -77,6 +77,8 @@ Here you can find a simple example on how to use this layout component.
 </template>
 
 <script>
+import './node_modules/@fortawesome/fontawesome-free/css/all.css';
+
 import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton, VueAdsMinifyButton } from 'vue-ads-layout';
@@ -241,7 +243,10 @@ where the drawer has to be hidden.
  
 #### VueAdsMenuButton
 
-A menu button that can be used to open or close the drawers.
+A menu button that can be used to open or close the drawers. 
+
+If you want to use the font awesome icons,
+don't forget to import the css library. It's a dependency of this library so it's automatically installed. 
 
 ##### Properties
 
@@ -264,7 +269,10 @@ You can add a default template to override the default icon.
     
 #### VueAdsMinifyButton
 
-A minify button that can be used to minify the drawers.
+A minify button that can be used to minify the drawers. 
+
+If you want to use the font awesome icons,
+don't forget to import the css library. It's a dependency of this library so it's automatically installed. 
 
 ##### Properties
 

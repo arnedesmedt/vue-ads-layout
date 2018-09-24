@@ -1,5 +1,11 @@
 ## Changelog
 
+#### v1.3.0 - 2018/09/24
+
+- Make font awesome a dependency. Now you have to import the library if you want to use it.
+- Change the eslint extension to the vue/recommended.
+
+
 #### v1.2.2 - 2018/09/21
 
 - Add the button suffix to the button components. Because of naming conventions
