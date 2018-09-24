@@ -12,7 +12,6 @@
                     <div><slot name="first"/></div>
                     <div class="flex-grow"><slot name="middle"/></div>
                     <div><slot name="last"/></div>
-                    <slot/>
                 </div>
             </slot>
         </div>
