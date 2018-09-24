@@ -1,4 +1,4 @@
-import './assets/css/packages.css';
+import './assets/css/tailwind.css';
 
 import VueAdsLayout from './components/Layout';
 import VueAdsBar from './components/Bar';

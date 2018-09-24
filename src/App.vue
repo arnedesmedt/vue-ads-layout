@@ -103,7 +103,8 @@
 </template>
 
 <script>
-import './assets/css/packages.css';
+import './assets/css/tailwind.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 import VueAdsLayout from './components/Layout';
 import VueAdsBar from './components/Bar';
