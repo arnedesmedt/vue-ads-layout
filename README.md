@@ -296,7 +296,7 @@ The slot is scoped with the following variable:
 
 ```vue
 <vue-ads-minify-button :minified="false">
-   <i :slot-scope="props" class="fa fa-check"></i>
+   <i slot-scope="props" class="fa fa-check"></i>
 </vue-ads-minify-button>
  ```
  
@@ -309,7 +309,7 @@ The slot is scoped with the following variable:
  
  ```vue
 <vue-ads-minify-button :minified="false">
-   <div slot="extra" :slot-scope="props">Collapse</div>
+   <div slot="extra" slot-scope="props">Collapse</div>
 </vue-ads-minify-button>
 ```
         
