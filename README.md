@@ -208,7 +208,8 @@ Only use the valid, numeric [Tailwindcss width options](https://tailwindcss.com/
 - `minified`: *(type: boolean, default: false)* Indicates if the drawer is minified.
 - `hidden`: *(type: boolean, default: false)* Indicates if the drawer is hidden.
 - `responsive-minified`: *(type: array, default: ['all', 'sm'])* A list of all [Tailwindcss screen sizes](https://tailwindcss.com/docs/responsive-design)
-where the drawer has to be minified.
+where the drawer has to be minified. If you don't want to minify the drawer set this value to `['all']`. 
+If you always want the drawer to be minified set this value to `[]`.
 - `responsive-hidden`: *(type: array, default: ['all'])* A list of all [Tailwindcss screen sizes](https://tailwindcss.com/docs/responsive-design)
 where the drawer has to be hidden.
 
