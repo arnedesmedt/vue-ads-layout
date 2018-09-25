@@ -124,6 +124,7 @@ export default {
             };
 
             classes['w-' + this.currentWidth] = true;
+            classes['z-' + this.zIndex] = true;
             classes['pt-' + this.toolbar.height] = this.paddingTop;
             classes['pb-' + this.footer.height] = this.paddingBottom;
 
