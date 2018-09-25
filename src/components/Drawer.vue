@@ -99,7 +99,6 @@ export default {
                 height: null,
                 fixed: null,
             },
-
             window: null,
             right: this.$vnode.data.slot.includes('right'),
         };
