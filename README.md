@@ -287,11 +287,14 @@ If so the arrows are flipped.
     
 ##### Templates
 
-You can add a default template to override the default icon.
+You can add a default template to override the default icon. 
+The slot is scoped with the following variable:
+
+- `left`: *(type: boolean)* Indicates if icon points to left. Collapse for the left drawer and expand for the right drawer.
 
 ```vue
 <vue-ads-minify-button :minified="false">
-   <i class="fa fa-check"></i>
+   <i :slot-scope="props" class="fa fa-check"></i>
 </vue-ads-minify-button>
  ```
         

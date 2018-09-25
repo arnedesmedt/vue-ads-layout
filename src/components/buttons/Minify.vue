@@ -3,7 +3,7 @@
         class="cursor-pointer"
         @click="toggle"
     >
-        <slot>
+        <slot :left="left">
             <i
                 :class="iconClasses"
                 class="fa"
@@ -32,9 +32,13 @@ export default {
     computed: {
         iconClasses () {
             return {
-                'fa-angle-double-left': (!this.right && !this.minified) || (this.right && this.minified),
-                'fa-angle-double-right': (!this.right && this.minified) || (this.right && !this.minified),
+                'fa-angle-double-left': this.left,
+                'fa-angle-double-right': !this.left,
             };
+        },
+
+        left () {
+            return (!this.right && !this.minified) || (this.right && this.minified);
         },
     },
 
