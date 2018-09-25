@@ -8,6 +8,10 @@
                 :class="iconClasses"
                 class="fa"
             />
+            <slot
+                name="extra"
+                :left="left"
+            />
         </slot>
     </div>
 </template>

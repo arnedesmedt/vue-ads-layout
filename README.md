@@ -287,6 +287,8 @@ If so the arrows are flipped.
     
 ##### Templates
 
+###### default
+
 You can add a default template to override the default icon. 
 The slot is scoped with the following variable:
 
@@ -297,6 +299,19 @@ The slot is scoped with the following variable:
    <i :slot-scope="props" class="fa fa-check"></i>
 </vue-ads-minify-button>
  ```
+ 
+ ###### extra
+ 
+ Or add the named template `extra` to add some extra content after the arrow icon.
+ The slot is scoped with the following variable:
+ 
+ - `left`: *(type: boolean)* Indicates if icon points to left. Collapse for the left drawer and expand for the right drawer.
+ 
+ ```vue
+<vue-ads-minify-button :minified="false">
+   <div slot="extra" :slot-scope="props">Collapse</div>
+</vue-ads-minify-button>
+```
         
 
 ## Testing
