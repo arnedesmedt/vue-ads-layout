@@ -9,8 +9,8 @@
                 class="fa"
             />
             <slot
-                name="extra"
                 :left="left"
+                name="extra"
             />
         </slot>
     </div>
