@@ -58,30 +58,6 @@ export default {
             required: false,
             default: true,
         },
-
-        minifiedLeft: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
-        minifiedRight: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
-        hiddenLeft: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
-        hiddenRight: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
     },
 
     data () {
@@ -100,10 +76,6 @@ export default {
             'right-drawer': {
                 width: 0,
             },
-            holdMinifyLeftState: false,
-            holdMinifyRightState: false,
-            holdHideLeftState: false,
-            holdHideRightState: false,
         };
     },
 

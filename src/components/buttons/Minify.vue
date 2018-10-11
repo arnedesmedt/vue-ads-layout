@@ -33,6 +33,12 @@ export default {
         },
     },
 
+    data () {
+        return {
+            activated: false,
+        };
+    },
+
     computed: {
         iconClasses () {
             return {
@@ -48,7 +54,8 @@ export default {
 
     methods: {
         click () {
-            this.$emit('clicked', !this.minified);
+            this.activated = !this.activated;
+            this.$emit('clicked', !this.minified, this.activated);
         },
     },
 };

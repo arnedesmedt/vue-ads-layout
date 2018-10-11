@@ -3,8 +3,6 @@
         <vue-ads-layout
             :full-bar="false"
         >
-
-
             <vue-ads-bar
                 slot="toolbar"
                 :fixed="true"
@@ -13,27 +11,25 @@
                 <vue-ads-hide-button
                     slot="first"
                     :hidden="hiddenLeft"
-                    @clicked="hideAndHoldLeft"
+                    @clicked="hideLeft"
                 />
                 <vue-ads-hide-button
                     slot="last"
                     :hidden="hiddenRight"
-                    @clicked="hideAndHoldRight"
+                    @clicked="hideRight"
                 />
             </vue-ads-bar>
-
-
             <vue-ads-bar
                 slot="footer"
                 :fixed="true"
                 class="bg-green"
             />
-
             <vue-ads-drawer
                 slot="left-drawer"
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
+                :responsive="!minifyLeftActivated && !hideLeftActivated"
                 class="bg-yellow"
                 @minify="minifyLeft"
                 @hide="hideLeft"
@@ -42,16 +38,15 @@
                 <vue-ads-minify-button
                     slot="bottom"
                     :minified="minifiedLeft"
-                    @clicked="minifyAndHoldLeft"
+                    @clicked="minifyLeft"
                 />
             </vue-ads-drawer>
-
-
             <vue-ads-drawer
                 slot="right-drawer"
                 :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
+                :responsive="!minifyRightActivated && !hideRightActivated"
                 :right="true"
                 class="bg-blue"
                 @minify="minifyRight"
@@ -62,7 +57,7 @@
                     slot="bottom"
                     :right="true"
                     :minified="minifiedRight"
-                    @clicked="minifyAndHoldRight"
+                    @clicked="minifyRight"
                 />
             </vue-ads-drawer>
 
@@ -154,44 +149,32 @@ export default {
             minifiedRight: false,
             hiddenLeft: false,
             hiddenRight: true,
+            minifyLeftActivated: false,
+            minifyRightActivated: false,
+            hideLeftActivated: false,
+            hideRightActivated: false,
         };
     },
 
     methods: {
-        minifyLeft (minified) {
+        minifyLeft (minified, activated = false) {
             this.minifiedLeft = minified;
+            this.minifyLeftActivated = activated;
         },
 
-        hideLeft (hidden) {
+        hideLeft (hidden, activated = false) {
             this.hiddenLeft = hidden;
+            this.hideLeftActivated = activated;
         },
 
-        minifyRight (minified) {
+        minifyRight (minified, activated = false) {
             this.minifiedRight = minified;
+            this.minifyRightActivated = activated;
         },
 
-        hideRight (hidden) {
+        hideRight (hidden, activated = false) {
             this.hiddenRight = hidden;
-        },
-
-        minifyAndHoldLeft (minified) {
-            this.holdMinifyLeftState = !this.holdMinifyLeftState;
-            this.minifyLeft(minified);
-        },
-
-        hideAndHoldLeft (hidden) {
-            this.holdHideLeftState = !this.holdHideLeftState;
-            this.hideLeft(hidden);
-        },
-
-        minifyAndHoldRight (minified) {
-            this.holdMinifyRightState = !this.holdMinifyRightState;
-            this.minifyRight(minified);
-        },
-
-        hideAndHoldRight (hidden) {
-            this.holdHideRightState = !this.holdHideRightState;
-            this.hideRight(hidden);
+            this.hideRightActivated = activated;
         },
     },
 };

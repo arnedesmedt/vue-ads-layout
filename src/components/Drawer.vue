@@ -72,15 +72,21 @@ export default {
         },
 
         minifyOn: {
-            type: [Number, Boolean],
+            type: Number,
             required: false,
             default: 768,
         },
 
         hideOn: {
-            type: [Number, Boolean],
+            type: Number,
             required: false,
             default: 576,
+        },
+
+        responsive: {
+            type: Boolean,
+            required: false,
+            default: true,
         },
 
         right: {
@@ -150,8 +156,7 @@ export default {
     watch: {
         minified: 'updateParent',
         hidden: 'updateParent',
-        minifyOn: 'setupWindowEventListener',
-        hideOn: 'setupWindowEventListener',
+        responsive: 'setupWindowEventListener',
     },
 
     mounted () {
@@ -161,17 +166,14 @@ export default {
 
     methods: {
         setupWindowEventListener (initial = false) {
-            if (
-                this.minifyOn === false &&
-                this.hideOn === false
-            ) {
+            if (!this.responsive) {
                 window.removeEventListener('resize', this.resizeWindow);
                 this.listening = false;
 
                 return;
             }
 
-            if (! this.listening) {
+            if (!this.listening) {
                 window.addEventListener('resize', this.resizeWindow);
                 this.listening = true;
 

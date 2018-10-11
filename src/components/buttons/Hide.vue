@@ -20,9 +20,16 @@ export default {
         },
     },
 
+    data () {
+        return {
+            activated: false,
+        };
+    },
+
     methods: {
         click () {
-            this.$emit('clicked', !this.hidden);
+            this.activated = !this.activated;
+            this.$emit('clicked', !this.hidden, this.activated);
         },
     },
 };
