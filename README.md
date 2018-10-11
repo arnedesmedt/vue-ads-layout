@@ -4,9 +4,8 @@ This is a vue component library to create a default web application layout.
 You can create a toolbar, footer, left and right drawers. 
 And each of those 4 components can be placed as a fixed component.
 
-The left and right drawers can be minified or hidden by buttons or by resizing the window (responsive design)
-
-I also added two default buttons to hide and minify the drawers.
+It also includes hide and minify buttons.
+The left and right drawers can be minified or hidden by the buttons or by resizing the window (responsive design)
 
 ## Demo
 
@@ -30,17 +29,12 @@ Here you can find a simple example on how to use this layout component.
 
 It contains the following variables:
 
-- `hiddenLeft`: Indicates if the left drawer is hidden.
+- `hiddenLeft`: Indicates if the left drawer is hidden. 
 - `hiddenRight`: Indicates if the right drawer is hidden.
 - `minifiedLeft`: Indicates if the left drawer is minified.
 - `minifiedRight`: Indicates if the right drawer is minified.
-- `minifiedLeftButtonActivated`: Indicates if the minified left button is activated. 
-If the layout is viewed on a mobile device. The drawers will be immediately hidden or minified.
-Therefore we added these variables to check if the minified left button is clicked. 
-It's true if it's clicked one time, false on the second time, and so one...
-- `minifiedRightButtonActivated`: Indicates if the minified right button is activated.
-- `hiddenLeftButtonActivated`: Indicates if the hidden left button is activated.
-- `hiddenRightButtonActivated`: Indicates if the hidden right button is activated.
+
+All the variables are booleans or null if you want the responsiveness to select the initial drawer state.
 
 ```vue
 <template>
@@ -75,7 +69,6 @@ It's true if it's clicked one time, false on the second time, and so one...
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
-                :responsive="!minifyLeftButtonActivated && !hideLeftButtonActivated"
                 class="bg-yellow"
                 @minify="minifyLeft"
                 @hide="hideLeft"
@@ -92,7 +85,6 @@ It's true if it's clicked one time, false on the second time, and so one...
                 :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
-                :responsive="!minifyRightButtonActivated && !hideRightButtonActivated"
                 :right="true"
                 class="bg-blue"
                 @minify="minifyRight"
@@ -132,36 +124,28 @@ export default {
 
     data () {
         return {
-            minifiedLeft: false,
+            minifiedLeft: null,
             minifiedRight: false,
-            hiddenLeft: false,
-            hiddenRight: true,
-            minifyLeftButtonActivated: false,
-            minifyRightButtonActivated: false,
-            hideLeftButtonActivated: false,
-            hideRightButtonActivated: false,
+            hiddenLeft: null,
+            hiddenRight: false,
         };
     },
-
+    
     methods: {
-        minifyLeft (minified, activated = false) {
+        minifyLeft (minified) {
             this.minifiedLeft = minified;
-            this.minifyLeftButtonActivated = activated;
         },
-
-        hideLeft (hidden, activated = false) {
+    
+        hideLeft (hidden) {
             this.hiddenLeft = hidden;
-            this.hideLeftButtonActivated = activated;
         },
-
-        minifyRight (minified, activated = false) {
+    
+        minifyRight (minified) {
             this.minifiedRight = minified;
-            this.minifyRightButtonActivated = activated;
         },
-
-        hideRight (hidden, activated = false) {
+    
+        hideRight (hidden) {
             this.hiddenRight = hidden;
-            this.hideRightButtonActivated = activated;
         },
     },
 };
@@ -305,9 +289,6 @@ don't forget to import the css library. It's a dependency of this library so it'
 
 - `clicked`: Emitted if the button is clicked.
     - `hidden`: *(type: boolean)* Indicates if the drawer is hidden after the click.
-    - `activated`: *(type: boolean)* It's true if the button is clicked once. 
-    False, if it's clicked twice, and so one...
-
     
 ##### Templates
 
@@ -335,9 +316,7 @@ If so the arrows are flipped.
 ##### Events
 
 - `toggle`: Emitted if the button is clicked.
-    - `minified`: *(type: boolean)* Indicates if the drawer is minified.
-    - `activated`: *(type: boolean)* It's true if the button is clicked once. 
-    False, if it's clicked twice, and so one...
+    - `minified`: *(type: boolean)* Indicates if the drawer is minified after the click.
     
 ##### Templates
 

@@ -22,8 +22,10 @@ export default {
 
     props: {
         minified: {
-            type: Boolean,
             required: true,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
         },
 
         right: {
@@ -31,12 +33,6 @@ export default {
             required: false,
             default: false,
         },
-    },
-
-    data () {
-        return {
-            activated: false,
-        };
     },
 
     computed: {
@@ -54,7 +50,6 @@ export default {
 
     methods: {
         click () {
-            this.activated = !this.activated;
             this.$emit('clicked', !this.minified, this.activated);
         },
     },
