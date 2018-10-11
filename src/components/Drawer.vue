@@ -60,15 +60,19 @@ export default {
         },
 
         minified: {
-            type: Boolean,
             required: false,
             default: false,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
         },
 
         hidden: {
-            type: Boolean,
             required: false,
             default: false,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
         },
 
         minifyOn: {
@@ -98,11 +102,15 @@ export default {
 
     data () {
         return {
-            listening: false,
+            window: null,
         };
     },
 
     computed: {
+        visible () {
+            return !this.minified && !this.hidden;
+        },
+
         currentWidth () {
             return this.minified ? this.minifiedWidth : this.width;
         },
@@ -156,53 +164,86 @@ export default {
     watch: {
         minified: 'updateParent',
         hidden: 'updateParent',
-        responsive: 'setupWindowEventListener',
+        window: 'updateWindow',
+        responsive: {
+            handler: 'setupEventListener',
+            immediate: true,
+        },
     },
 
     mounted () {
         this.updateParent();
-        this.setupWindowEventListener(true);
+        if (this.responsive) {
+            this.resizeWindow();
+        }
     },
 
     methods: {
-        setupWindowEventListener (initial = false) {
-            if (!this.responsive) {
+        setupEventListener () {
+            if (! this.responsive) {
                 window.removeEventListener('resize', this.resizeWindow);
-                this.listening = false;
-
                 return;
             }
 
-            if (!this.listening) {
-                window.addEventListener('resize', this.resizeWindow);
-                this.listening = true;
-
-                if (initial) {
-                    this.resizeWindow();
-                }
-            }
+            window.addEventListener('resize', this.resizeWindow);
         },
 
         resizeWindow () {
-            if (this.hideOn !== false) {
-                if (window.innerWidth < this.hideOn && !this.hidden) {
+            if (window.innerWidth < this.hideOn) {
+                this.window = 'hidden';
+                return;
+            }
+
+            if (window.innerWidth < this.minifyOn) {
+                this.window = 'minified';
+                return;
+            }
+
+            this.window = 'visible';
+        },
+
+        updateWindow (window, oldWindow) {
+            if (oldWindow === null) {
+                // initial update
+                if (
+                    (this.hidden === null && window === 'hidden') ||
+                    this.hidden
+                ) {
                     this.$emit('hide', true);
                     return;
                 }
 
-                if (window.innerWidth >= this.hideOn && this.hidden) {
-                    this.$emit('hide', false);
+                if (
+                    (this.minified === null && window === 'minified') ||
+                    this.minified
+                ) {
+                    this.$emit('minify', true);
                     return;
                 }
             }
 
-            if (this.minifyOn !== false) {
-                if (window.innerWidth < this.minifyOn && !this.minified) {
+            if (window === 'hidden') {
+                if (this.minified && oldWindow === 'minified') {
+                    this.$emit('hide', true);
+                    return;
+                }
+            }
+
+            if (window === 'minified') {
+                if (this.hidden && oldWindow === 'hidden') {
+                    this.$emit('hide', false);
                     this.$emit('minify', true);
                     return;
                 }
 
-                if (window.innerWidth >= this.minifyOn && this.minified) {
+                if (this.visible && oldWindow === 'visible') {
+                    this.$emit('minify', true);
+                    return;
+                }
+            }
+
+            if (window === 'visible') {
+                if (this.minified && oldWindow === 'minified') {
                     this.$emit('minify', false);
                 }
             }

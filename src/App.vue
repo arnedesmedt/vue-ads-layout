@@ -30,7 +30,6 @@
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
-                :responsive="!minifyLeftButtonActivated && !hideLeftButtonActivated"
                 class="bg-yellow"
                 @minify="minifyLeft"
                 @hide="hideLeft"
@@ -47,7 +46,6 @@
                 :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
-                :responsive="!minifyRightButtonActivated && !hideRightButtonActivated"
                 :right="true"
                 class="bg-blue"
                 @minify="minifyRight"
@@ -146,36 +144,28 @@ export default {
 
     data () {
         return {
-            minifiedLeft: false,
+            minifiedLeft: null,
             minifiedRight: false,
-            hiddenLeft: false,
-            hiddenRight: true,
-            minifyLeftButtonActivated: false,
-            minifyRightButtonActivated: false,
-            hideLeftButtonActivated: false,
-            hideRightButtonActivated: false,
+            hiddenLeft: null,
+            hiddenRight: false,
         };
     },
 
     methods: {
-        minifyLeft (minified, activated = false) {
+        minifyLeft (minified) {
             this.minifiedLeft = minified;
-            this.minifyLeftButtonActivated = activated;
         },
 
-        hideLeft (hidden, activated = false) {
+        hideLeft (hidden) {
             this.hiddenLeft = hidden;
-            this.hideLeftButtonActivated = activated;
         },
 
-        minifyRight (minified, activated = false) {
+        minifyRight (minified) {
             this.minifiedRight = minified;
-            this.minifyRightButtonActivated = activated;
         },
 
-        hideRight (hidden, activated = false) {
+        hideRight (hidden) {
             this.hiddenRight = hidden;
-            this.hideRightButtonActivated = activated;
         },
     },
 };

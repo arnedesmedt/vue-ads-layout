@@ -4,7 +4,8 @@
 
 - Replace the responsive-hide and minify attributes by hide-on and minify-on on the drawer component.
 - Add a reponsive property on the drawer to indicate if it will behave responsive.
-- The buttons emit if they are active or not.
+- The initial state of hide / minify is used and not overridden by the responsiveness.
+- Renamed the menu button to the hide button.
 
 #### v1.3.0 - 2018/09/24
 

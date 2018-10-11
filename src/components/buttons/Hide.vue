@@ -15,20 +15,15 @@ export default {
 
     props: {
         hidden: {
-            type: Boolean,
             required: true,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
         },
-    },
-
-    data () {
-        return {
-            activated: false,
-        };
     },
 
     methods: {
         click () {
-            this.activated = !this.activated;
             this.$emit('clicked', !this.hidden, this.activated);
         },
     },
