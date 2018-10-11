@@ -34,12 +34,17 @@ export default {
             required: false,
             default: 16,
         },
+
+        footer: {
+            type: Boolean,
+            required: false,
+            default: false,
+        }
     },
 
     data () {
         return {
             staticClass: null,
-            footer: this.$vnode.data.slot.includes('footer'),
         };
     },
 

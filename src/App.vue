@@ -22,6 +22,7 @@
             <vue-ads-bar
                 slot="footer"
                 :fixed="true"
+                :footer="true"
                 class="bg-green"
             />
             <vue-ads-drawer
@@ -29,7 +30,7 @@
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
-                :responsive="!minifyLeftActivated && !hideLeftActivated"
+                :responsive="!minifyLeftButtonActivated && !hideLeftButtonActivated"
                 class="bg-yellow"
                 @minify="minifyLeft"
                 @hide="hideLeft"
@@ -46,7 +47,7 @@
                 :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
-                :responsive="!minifyRightActivated && !hideRightActivated"
+                :responsive="!minifyRightButtonActivated && !hideRightButtonActivated"
                 :right="true"
                 class="bg-blue"
                 @minify="minifyRight"
@@ -149,32 +150,32 @@ export default {
             minifiedRight: false,
             hiddenLeft: false,
             hiddenRight: true,
-            minifyLeftActivated: false,
-            minifyRightActivated: false,
-            hideLeftActivated: false,
-            hideRightActivated: false,
+            minifyLeftButtonActivated: false,
+            minifyRightButtonActivated: false,
+            hideLeftButtonActivated: false,
+            hideRightButtonActivated: false,
         };
     },
 
     methods: {
         minifyLeft (minified, activated = false) {
             this.minifiedLeft = minified;
-            this.minifyLeftActivated = activated;
+            this.minifyLeftButtonActivated = activated;
         },
 
         hideLeft (hidden, activated = false) {
             this.hiddenLeft = hidden;
-            this.hideLeftActivated = activated;
+            this.hideLeftButtonActivated = activated;
         },
 
         minifyRight (minified, activated = false) {
             this.minifiedRight = minified;
-            this.minifyRightActivated = activated;
+            this.minifyRightButtonActivated = activated;
         },
 
         hideRight (hidden, activated = false) {
             this.hiddenRight = hidden;
-            this.hideRightActivated = activated;
+            this.hideRightButtonActivated = activated;
         },
     },
 };
