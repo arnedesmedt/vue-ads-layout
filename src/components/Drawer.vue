@@ -53,59 +53,88 @@ export default {
             default: 64,
         },
 
-        minified: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
-        hidden: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
-        responsiveMinify: {
-            type: Array,
-            required: false,
-            default () {
-                return ['all', 'sm'];
-            },
-        },
-
-        responsiveHide: {
-            type: Array,
-            required: false,
-            default () {
-                return ['all'];
-            },
-        },
-
         minifiedWidth: {
             type: Number,
             required: false,
             default: 16,
         },
+
+        minified: {
+            required: false,
+            default: false,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
+        },
+
+        hidden: {
+            required: false,
+            default: false,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
+        },
+
+        minifyOn: {
+            type: Number,
+            required: false,
+            default: 768,
+        },
+
+        hideOn: {
+            type: Number,
+            required: false,
+            default: 576,
+        },
+
+        responsive: {
+            type: Boolean,
+            required: false,
+            default: true,
+        },
+
+        right: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
 
     data () {
         return {
-            toolbar: {
-                height: null,
-                fixed: null,
-            },
-
-            footer: {
-                height: null,
-                fixed: null,
-            },
-
             window: null,
-            right: this.$vnode.data.slot.includes('right'),
         };
     },
 
     computed: {
+        visible () {
+            return !this.minified && !this.hidden;
+        },
+
+        currentWidth () {
+            return this.minified ? this.minifiedWidth : this.width;
+        },
+
+        paddingTop () {
+            if (!this.$parent.$props.fullBar || !this.fixed) {
+                return false;
+            }
+
+            return this.fixed || this.$parent.$data.toolbar.fixed;
+        },
+
+        paddingBottom () {
+            if (!this.$parent.$props.fullBar || !this.fixed) {
+                return false;
+            }
+
+            return this.fixed || this.$parent.$data.footer.fixed;
+        },
+
+        zIndex () {
+            return this.$parent.$props.fullBar ? 40 : 50;
+        },
+
         drawerClasses () {
             let classes = {};
 
@@ -125,71 +154,105 @@ export default {
 
             classes['w-' + this.currentWidth] = true;
             classes['z-' + this.zIndex] = true;
-            classes['pt-' + this.toolbar.height] = this.paddingTop;
-            classes['pb-' + this.footer.height] = this.paddingBottom;
+            classes['pt-' + this.$parent.$data.toolbar.height] = this.paddingTop;
+            classes['pb-' + this.$parent.$data.footer.height] = this.paddingBottom;
 
             return classes;
-        },
-
-        currentWidth () {
-            return this.minified ? this.minifiedWidth : this.width;
-        },
-
-        paddingTop () {
-            if (!this.$parent.$props.fullBar || !this.fixed) {
-                return false;
-            }
-
-            return this.fixed || this.toolbar.fixed;
-        },
-
-        paddingBottom () {
-            if (!this.$parent.$props.fullBar || !this.fixed) {
-                return false;
-            }
-
-            return this.fixed || this.footer.fixed;
-        },
-
-        zIndex () {
-            return this.$parent.$props.fullBar ? 40 : 50;
         },
     },
 
     watch: {
-        window (window) {
-            if (
-                this.responsiveMinify.length > 0 &&
-                this.responsiveMinify.includes(window) !== this.minified
-            ) {
-                this.$emit('minify', this.responsiveMinify.includes(window));
-            }
-
-            if (
-                this.responsiveHide.length > 0 &&
-                this.responsiveHide.includes(window) !== this.hidden
-            ) {
-                this.$emit('hide', this.responsiveHide.includes(window));
-            }
-        },
-
-        currentWidth (width) {
-            this.$parent.updateChildrenData();
-        },
-
-        hidden (hidden) {
-            this.$parent.updateChildrenData();
+        minified: 'updateParent',
+        hidden: 'updateParent',
+        window: 'updateWindow',
+        responsive: {
+            handler: 'setupEventListener',
+            immediate: true,
         },
     },
 
+    mounted () {
+        this.updateParent();
+        if (this.responsive) {
+            this.resizeWindow();
+        }
+    },
+
     methods: {
-        handleSiblingData () {
-            this.toolbar = this.$parent.$data.toolbar;
-            this.footer = this.$parent.$data.footer;
+        setupEventListener () {
+            if (! this.responsive) {
+                window.removeEventListener('resize', this.resizeWindow);
+                return;
+            }
+
+            window.addEventListener('resize', this.resizeWindow);
         },
 
-        handleWindow (window) {
-            this.window = window;
+        resizeWindow () {
+            if (window.innerWidth < this.hideOn) {
+                this.window = 'hidden';
+                return;
+            }
+
+            if (window.innerWidth < this.minifyOn) {
+                this.window = 'minified';
+                return;
+            }
+
+            this.window = 'visible';
+        },
+
+        updateWindow (window, oldWindow) {
+            if (oldWindow === null) {
+                // initial update
+                if (
+                    (this.hidden === null && window === 'hidden') ||
+                    this.hidden
+                ) {
+                    this.$emit('hide', true);
+                    return;
+                }
+
+                if (
+                    (this.minified === null && window === 'minified') ||
+                    this.minified
+                ) {
+                    this.$emit('minify', true);
+                    return;
+                }
+            }
+
+            if (window === 'hidden') {
+                if (this.minified && oldWindow === 'minified') {
+                    this.$emit('hide', true);
+                    return;
+                }
+            }
+
+            if (window === 'minified') {
+                if (this.hidden && oldWindow === 'hidden') {
+                    this.$emit('hide', false);
+                    this.$emit('minify', true);
+                    return;
+                }
+
+                if (this.visible && oldWindow === 'visible') {
+                    this.$emit('minify', true);
+                    return;
+                }
+            }
+
+            if (window === 'visible') {
+                if (this.minified && oldWindow === 'minified') {
+                    this.$emit('minify', false);
+                }
+            }
+        },
+
+        updateParent () {
+            this.$parent.updateChildData(this.$vnode.data.slot, {
+                width: this.hidden ? 0 : this.currentWidth,
+            });
         },
     },
 };

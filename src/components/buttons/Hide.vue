@@ -1,7 +1,7 @@
 <template>
     <div
         class="cursor-pointer"
-        @click="toggle"
+        @click="click"
     >
         <slot>
             <i class="fa fa-bars"/>
@@ -11,18 +11,20 @@
 
 <script>
 export default {
-    name: 'VueAdsMenuButton',
+    name: 'VueAdsHideButton',
 
     props: {
         hidden: {
-            type: Boolean,
             required: true,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
         },
     },
 
     methods: {
-        toggle () {
-            this.$emit('toggle', !this.hidden);
+        click () {
+            this.$emit('clicked', !this.hidden, this.activated);
         },
     },
 };

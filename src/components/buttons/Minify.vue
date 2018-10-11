@@ -1,12 +1,16 @@
 <template>
     <div
         class="cursor-pointer"
-        @click="toggle"
+        @click="click"
     >
-        <slot>
+        <slot :left="left">
             <i
                 :class="iconClasses"
                 class="fa"
+            />
+            <slot
+                :left="left"
+                name="extra"
             />
         </slot>
     </div>
@@ -18,8 +22,10 @@ export default {
 
     props: {
         minified: {
-            type: Boolean,
             required: true,
+            validator: (value) => {
+                return value === null || typeof value === 'boolean';
+            },
         },
 
         right: {
@@ -32,15 +38,19 @@ export default {
     computed: {
         iconClasses () {
             return {
-                'fa-angle-double-left': (!this.right && !this.minified) || (this.right && this.minified),
-                'fa-angle-double-right': (!this.right && this.minified) || (this.right && !this.minified),
+                'fa-angle-double-left': this.left,
+                'fa-angle-double-right': !this.left,
             };
+        },
+
+        left () {
+            return (!this.right && !this.minified) || (this.right && this.minified);
         },
     },
 
     methods: {
-        toggle () {
-            this.$emit('toggle', !this.minified);
+        click () {
+            this.$emit('clicked', !this.minified, this.activated);
         },
     },
 };

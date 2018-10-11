@@ -1,5 +1,12 @@
 ## Changelog
 
+#### v1.4.0 - 2018/10/11
+
+- Replace the responsive-hide and minify attributes by hide-on and minify-on on the drawer component.
+- Add a reponsive property on the drawer to indicate if it will behave responsive.
+- The initial state of hide / minify is used and not overridden by the responsiveness.
+- Renamed the menu button to the hide button.
+
 #### v1.3.0 - 2018/09/24
 
 - Make font awesome a dependency. Now you have to import the library if you want to use it.

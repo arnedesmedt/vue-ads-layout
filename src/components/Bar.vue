@@ -45,12 +45,6 @@ export default {
     data () {
         return {
             staticClass: null,
-            leftDrawer: {
-                width: null,
-            },
-            rightDrawer: {
-                width: null,
-            },
         };
     },
 
@@ -70,8 +64,8 @@ export default {
                 'w-full': !this.fixed || this.$parent.$props.fullBar,
             };
 
-            classes['inset-l-' + this.leftDrawer.width] = this.fixed && !this.$parent.$props.fullBar;
-            classes['inset-r-' + this.rightDrawer.width] = this.fixed && !this.$parent.$props.fullBar;
+            classes['inset-l-' + this.$parent.$data['left-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
+            classes['inset-r-' + this.$parent.$data['right-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
             classes['h-' + this.height] = true;
             classes['z-' + this.zIndex] = true;
 
@@ -90,13 +84,8 @@ export default {
     },
 
     watch: {
-        fixed () {
-            this.$parent.updateChildrenData();
-        },
-
-        height () {
-            this.$parent.updateChildrenData();
-        },
+        fixed: 'updateParent',
+        height: 'updateParent',
     },
 
     created () {
@@ -104,10 +93,16 @@ export default {
         this.$vnode.data.staticClass = '';
     },
 
+    mounted () {
+        this.updateParent();
+    },
+
     methods: {
-        handleSiblingData () {
-            this.leftDrawer = this.$parent.$data['left-drawer'];
-            this.rightDrawer = this.$parent.$data['right-drawer'];
+        updateParent () {
+            this.$parent.updateChildData(this.$vnode.data.slot, {
+                height: this.height,
+                fixed: this.fixed,
+            });
         },
     },
 };

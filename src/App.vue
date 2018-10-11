@@ -1,27 +1,30 @@
 <template>
     <div id="app">
-        <vue-ads-layout :full-bar="false">
+        <vue-ads-layout
+            :full-bar="false"
+        >
             <vue-ads-bar
                 slot="toolbar"
                 :fixed="true"
                 class="bg-red"
             >
-                <vue-ads-menu-button 
-                    slot="first" 
-                    :hidden="hiddenLeft" 
-                    @toggle="hideLeft"/>
-                <vue-ads-menu-button 
-                    slot="last" 
-                    :hidden="hiddenRight" 
-                    @toggle="hideRight"/>
+                <vue-ads-hide-button
+                    slot="first"
+                    :hidden="hiddenLeft"
+                    @clicked="hideLeft"
+                />
+                <vue-ads-hide-button
+                    slot="last"
+                    :hidden="hiddenRight"
+                    @clicked="hideRight"
+                />
             </vue-ads-bar>
-            <!--<vue-ads-bar-->
-            <!--slot="footer"-->
-            <!--:fixed="false"-->
-            <!--:footer="true"-->
-            <!--class="bg-green"-->
-            <!--&gt;-->
-            <!--</vue-ads-bar>-->
+            <vue-ads-bar
+                slot="footer"
+                :fixed="true"
+                :footer="true"
+                class="bg-green"
+            />
             <vue-ads-drawer
                 slot="left-drawer"
                 :fixed="true"
@@ -32,26 +35,29 @@
                 @hide="hideLeft"
             >
                 <div slot="top">Navigation</div>
-                <vue-ads-minify-button 
-                    slot="bottom" 
-                    :minified="minifiedLeft" 
-                    @toggle="minifyLeft"/>
+                <vue-ads-minify-button
+                    slot="bottom"
+                    :minified="minifiedLeft"
+                    @clicked="minifyLeft"
+                />
             </vue-ads-drawer>
             <vue-ads-drawer
                 slot="right-drawer"
+                :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
-                :fixed="false"
+                :right="true"
                 class="bg-blue"
                 @minify="minifyRight"
                 @hide="hideRight"
             >
                 <div slot="top">Navigation</div>
-                <vue-ads-minify-button 
-                    slot="bottom" 
-                    :right="true" 
-                    :minified="minifiedRight" 
-                    @toggle="minifyRight"/>
+                <vue-ads-minify-button
+                    slot="bottom"
+                    :right="true"
+                    :minified="minifiedRight"
+                    @clicked="minifyRight"
+                />
             </vue-ads-drawer>
 
             start<br>
@@ -122,7 +128,7 @@ import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import VueAdsLayout from './components/Layout';
 import VueAdsBar from './components/Bar';
 import VueAdsDrawer from './components/Drawer';
-import VueAdsMenuButton from './components/buttons/Menu';
+import VueAdsHideButton from './components/buttons/Hide';
 import VueAdsMinifyButton from './components/buttons/Minify';
 
 export default {
@@ -130,7 +136,7 @@ export default {
 
     components: {
         VueAdsMinifyButton,
-        VueAdsMenuButton,
+        VueAdsHideButton,
         VueAdsDrawer,
         VueAdsBar,
         VueAdsLayout,
@@ -138,9 +144,9 @@ export default {
 
     data () {
         return {
-            minifiedLeft: false,
+            minifiedLeft: null,
             minifiedRight: false,
-            hiddenLeft: false,
+            hiddenLeft: null,
             hiddenRight: false,
         };
     },
