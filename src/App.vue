@@ -34,8 +34,6 @@
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
-                :hold-minify-state="holdMinifyLeftState"
-                :hold-hide-state="holdHideLeftState"
                 class="bg-yellow"
                 @minify="minifyLeft"
                 @hide="hideLeft"
@@ -54,8 +52,7 @@
                 :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
-                :hold-minify-state="holdMinifyRightState"
-                :hold-hide-state="holdHideRightState"
+                :right="true"
                 class="bg-blue"
                 @minify="minifyRight"
                 @hide="hideRight"
@@ -156,11 +153,7 @@ export default {
             minifiedLeft: false,
             minifiedRight: false,
             hiddenLeft: false,
-            hiddenRight: false,
-            holdMinifyLeftState: false,
-            holdMinifyRightState: false,
-            holdHideLeftState: false,
-            holdHideRightState: false,
+            hiddenRight: true,
         };
     },
 

@@ -71,18 +71,6 @@ export default {
             default: false,
         },
 
-        holdMinifyState: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
-        holdHideState: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-
         minifyOn: {
             type: [Number, Boolean],
             required: false,
@@ -94,11 +82,16 @@ export default {
             required: false,
             default: 576,
         },
+
+        right: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
 
     data () {
         return {
-            right: this.$vnode.data.slot.includes('right'),
             listening: false,
         };
     },
@@ -159,8 +152,6 @@ export default {
         hidden: 'updateParent',
         minifyOn: 'setupWindowEventListener',
         hideOn: 'setupWindowEventListener',
-        holdMinifyState: 'setupWindowEventListener',
-        holdHideState: 'setupWindowEventListener',
     },
 
     mounted () {
@@ -171,9 +162,8 @@ export default {
     methods: {
         setupWindowEventListener (initial = false) {
             if (
-                (this.minifyOn === false && this.hideOn === false) ||
-                this.holdMinifyState ||
-                this.holdHideState
+                this.minifyOn === false &&
+                this.hideOn === false
             ) {
                 window.removeEventListener('resize', this.resizeWindow);
                 this.listening = false;
