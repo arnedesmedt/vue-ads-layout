@@ -1,7 +1,7 @@
 <template>
     <div
         class="cursor-pointer"
-        @click="toggle"
+        @click="click"
     >
         <slot>
             <i class="fa fa-bars"/>
@@ -21,8 +21,8 @@ export default {
     },
 
     methods: {
-        toggle () {
-            this.$emit('toggle', !this.hidden);
+        click () {
+            this.$emit('clicked', !this.hidden);
         },
     },
 };

@@ -1,57 +1,72 @@
 <template>
     <div id="app">
-        <vue-ads-layout :full-bar="false">
+        <vue-ads-layout
+            :full-bar="false"
+        >
+
+
             <vue-ads-bar
                 slot="toolbar"
                 :fixed="true"
                 class="bg-red"
             >
-                <vue-ads-menu-button 
-                    slot="first" 
-                    :hidden="hiddenLeft" 
-                    @toggle="hideLeft"/>
-                <vue-ads-menu-button 
-                    slot="last" 
-                    :hidden="hiddenRight" 
-                    @toggle="hideRight"/>
+                <vue-ads-menu-button
+                    slot="first"
+                    :hidden="hiddenLeft"
+                    @clicked="hideAndHoldLeft"
+                />
+                <vue-ads-menu-button
+                    slot="last"
+                    :hidden="hiddenRight"
+                    @clicked="hideAndHoldRight"
+                />
             </vue-ads-bar>
-            <!--<vue-ads-bar-->
-            <!--slot="footer"-->
-            <!--:fixed="false"-->
-            <!--:footer="true"-->
-            <!--class="bg-green"-->
-            <!--&gt;-->
-            <!--</vue-ads-bar>-->
+
+
+            <vue-ads-bar
+                slot="footer"
+                :fixed="true"
+                class="bg-green"
+            />
+
             <vue-ads-drawer
                 slot="left-drawer"
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
+                :hold-minify-state="holdMinifyLeftState"
+                :hold-hide-state="holdHideLeftState"
                 class="bg-yellow"
                 @minify="minifyLeft"
                 @hide="hideLeft"
             >
                 <div slot="top">Navigation</div>
-                <vue-ads-minify-button 
-                    slot="bottom" 
-                    :minified="minifiedLeft" 
-                    @toggle="minifyLeft"/>
+                <vue-ads-minify-button
+                    slot="bottom"
+                    :minified="minifiedLeft"
+                    @clicked="minifyAndHoldLeft"
+                />
             </vue-ads-drawer>
+
+
             <vue-ads-drawer
                 slot="right-drawer"
+                :fixed="false"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
-                :fixed="false"
+                :hold-minify-state="holdMinifyRightState"
+                :hold-hide-state="holdHideRightState"
                 class="bg-blue"
                 @minify="minifyRight"
                 @hide="hideRight"
             >
                 <div slot="top">Navigation</div>
-                <vue-ads-minify-button 
-                    slot="bottom" 
-                    :right="true" 
-                    :minified="minifiedRight" 
-                    @toggle="minifyRight"/>
+                <vue-ads-minify-button
+                    slot="bottom"
+                    :right="true"
+                    :minified="minifiedRight"
+                    @clicked="minifyAndHoldRight"
+                />
             </vue-ads-drawer>
 
             start<br>
@@ -142,6 +157,10 @@ export default {
             minifiedRight: false,
             hiddenLeft: false,
             hiddenRight: false,
+            holdMinifyLeftState: false,
+            holdMinifyRightState: false,
+            holdHideLeftState: false,
+            holdHideRightState: false,
         };
     },
 
@@ -160,6 +179,26 @@ export default {
 
         hideRight (hidden) {
             this.hiddenRight = hidden;
+        },
+
+        minifyAndHoldLeft (minified) {
+            this.holdMinifyLeftState = !this.holdMinifyLeftState;
+            this.minifyLeft(minified);
+        },
+
+        hideAndHoldLeft (hidden) {
+            this.holdHideLeftState = !this.holdHideLeftState;
+            this.hideLeft(hidden);
+        },
+
+        minifyAndHoldRight (minified) {
+            this.holdMinifyRightState = !this.holdMinifyRightState;
+            this.minifyRight(minified);
+        },
+
+        hideAndHoldRight (hidden) {
+            this.holdHideRightState = !this.holdHideRightState;
+            this.hideRight(hidden);
         },
     },
 };

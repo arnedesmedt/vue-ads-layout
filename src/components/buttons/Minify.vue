@@ -1,7 +1,7 @@
 <template>
     <div
         class="cursor-pointer"
-        @click="toggle"
+        @click="click"
     >
         <slot :left="left">
             <i
@@ -47,8 +47,8 @@ export default {
     },
 
     methods: {
-        toggle () {
-            this.$emit('toggle', !this.minified);
+        click () {
+            this.$emit('clicked', !this.minified);
         },
     },
 };
