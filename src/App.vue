@@ -10,12 +10,12 @@
                 :fixed="true"
                 class="bg-red"
             >
-                <vue-ads-menu-button
+                <vue-ads-hide-button
                     slot="first"
                     :hidden="hiddenLeft"
                     @clicked="hideAndHoldLeft"
                 />
-                <vue-ads-menu-button
+                <vue-ads-hide-button
                     slot="last"
                     :hidden="hiddenRight"
                     @clicked="hideAndHoldRight"
@@ -137,7 +137,7 @@ import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import VueAdsLayout from './components/Layout';
 import VueAdsBar from './components/Bar';
 import VueAdsDrawer from './components/Drawer';
-import VueAdsMenuButton from './components/buttons/Menu';
+import VueAdsHideButton from './components/buttons/Hide';
 import VueAdsMinifyButton from './components/buttons/Minify';
 
 export default {
@@ -145,7 +145,7 @@ export default {
 
     components: {
         VueAdsMinifyButton,
-        VueAdsMenuButton,
+        VueAdsHideButton,
         VueAdsDrawer,
         VueAdsBar,
         VueAdsLayout,
