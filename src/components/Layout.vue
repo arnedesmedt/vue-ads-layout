@@ -24,7 +24,7 @@
                     name="toolbar"/>
             </div>
             <div
-                class="flex-grow"
+                class="flex-grow relative"
             >
                 <slot/>
             </div>
