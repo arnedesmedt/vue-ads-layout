@@ -1,5 +1,10 @@
 ## Changelog
 
+#### v1.4.1 - 2018/11/27
+
+- Update packages
+- Add vue-ads- prefix to tailwind classes
+
 #### v1.4.0 - 2018/10/11
 
 - Replace the responsive-hide and minify attributes by hide-on and minify-on on the drawer component.
