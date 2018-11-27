@@ -122,7 +122,6 @@
 </template>
 
 <script>
-import './assets/css/tailwind.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 import VueAdsLayout from './components/Layout';

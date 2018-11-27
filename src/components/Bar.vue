@@ -1,16 +1,16 @@
 <template>
     <div
         :class="barClasses"
-        class="w-full"
+        class="vue-ads-w-full"
     >
         <div
             :class="barContainerClasses"
-            class="flex flex-col justify-center transition"
+            class="vue-ads-flex vue-ads-flex-col vue-ads-justify-center vue-ads-transition"
         >
             <slot>
-                <div class="flex">
+                <div class="vue-ads-flex">
                     <div><slot name="first"/></div>
-                    <div class="flex-grow"><slot name="middle"/></div>
+                    <div class="vue-ads-flex-grow"><slot name="middle"/></div>
                     <div><slot name="last"/></div>
                 </div>
             </slot>
@@ -52,22 +52,22 @@ export default {
         barClasses () {
             let classes = {};
 
-            classes['h-' + this.height] = true;
+            classes['vue-ads-h-' + this.height] = true;
 
             return classes;
         },
 
         barContainerClasses () {
             let classes = {
-                fixed: this.fixed,
-                'pin-b': this.footer,
-                'w-full': !this.fixed || this.$parent.$props.fullBar,
+                'vue-ads-fixed': this.fixed,
+                'vue-ads-pin-b': this.footer,
+                'vue-ads-w-full': !this.fixed || this.$parent.$props.fullBar,
             };
 
-            classes['inset-l-' + this.$parent.$data['left-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
-            classes['inset-r-' + this.$parent.$data['right-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
-            classes['h-' + this.height] = true;
-            classes['z-' + this.zIndex] = true;
+            classes['vue-ads-inset-l-' + this.$parent.$data['left-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
+            classes['vue-ads-inset-r-' + this.$parent.$data['right-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
+            classes['vue-ads-h-' + this.height] = true;
+            classes['vue-ads-z-' + this.zIndex] = true;
 
             if (this.staticClass) {
                 this.staticClass.split(' ').forEach(className => {
@@ -85,16 +85,15 @@ export default {
 
     watch: {
         fixed: 'updateParent',
-        height: 'updateParent',
+        height: {
+            handler: 'updateParent',
+            immediate: true,
+        },
     },
 
     created () {
         this.staticClass = this.$vnode.data.staticClass;
         this.$vnode.data.staticClass = '';
-    },
-
-    mounted () {
-        this.updateParent();
     },
 
     methods: {
@@ -109,7 +108,7 @@ export default {
 </script>
 
 <style scoped>
-.transition {
+.vue-ads-transition {
     transition: left 0.2s, right 0.2s;
     -webkit-transition: left 0.2s, right 0.2s;
     -moz-transition: left 0.2s, right 0.2s;

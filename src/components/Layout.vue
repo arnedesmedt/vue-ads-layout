@@ -1,7 +1,7 @@
 <template>
     <div
         :class="layoutClasses"
-        class="w-full max-w-screen min-h-screen overflow-x-hidden flex"
+        class="vue-ads-w-full vue-ads-max-w-screen vue-ads-min-h-screen vue-ads-overflow-x-hidden vue-ads-flex"
     >
         <div>
             <slot
@@ -13,7 +13,7 @@
         </div>
         <div
             :class="middleClasses"
-            class="flex-grow flex"
+            class="vue-ads-flex-grow vue-ads-flex"
         >
             <div>
                 <slot
@@ -24,7 +24,7 @@
                     name="toolbar"/>
             </div>
             <div
-                class="flex-grow"
+                class="vue-ads-flex-grow relative"
             >
                 <slot/>
             </div>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import './../assets/css/tailwind.css';
+
 export default {
     name: 'VueAdsLayout',
 
@@ -82,15 +84,15 @@ export default {
     computed: {
         layoutClasses () {
             return {
-                'flex-col': this.fullBar,
-                'flex-row': !this.fullBar,
+                'vue-ads-flex-col': this.fullBar,
+                'vue-ads-flex-row': !this.fullBar,
             };
         },
 
         middleClasses () {
             return {
-                'flex-row': this.fullBar,
-                'flex-col': !this.fullBar,
+                'vue-ads-flex-row': this.fullBar,
+                'vue-ads-flex-col': !this.fullBar,
             };
         },
     },

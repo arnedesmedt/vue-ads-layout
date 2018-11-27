@@ -107,7 +107,7 @@ All the variables are booleans or null if you want the responsiveness to select 
 
 <script>
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
+import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsHideButton, VueAdsMinifyButton } from 'vue-ads-layout';
 

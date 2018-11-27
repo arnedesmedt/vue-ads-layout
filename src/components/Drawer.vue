@@ -1,11 +1,11 @@
 <template>
     <div
         :class="drawerClasses"
-        class="h-full transition"
+        class="vue-ads-h-full vue-ads-transition"
     >
         <div
             :class="drawerContainerClasses"
-            class="flex flex-col h-full"
+            class="vue-ads-flex vue-ads-flex-col vue-ads-h-full"
         >
             <slot
                 :fixed="fixed"
@@ -13,7 +13,7 @@
                 :hidden="hidden"
                 :width="currentWidth"
             >
-                <div class="flex-grow w-full">
+                <div class="vue-ads-flex-grow vue-ads-w-full">
                     <slot
                         :fixed="fixed"
                         :minified="minified"
@@ -22,7 +22,7 @@
                         name="top"
                     />
                 </div>
-                <div class="w-full">
+                <div class="vue-ads-w-full">
                     <slot
                         :fixed="fixed"
                         :minified="minified"
@@ -138,32 +138,35 @@ export default {
         drawerClasses () {
             let classes = {};
 
-            classes['w-' + this.currentWidth] = true;
-            classes['z-' + this.zIndex] = true;
-            classes['-ml-' + this.currentWidth] = this.hidden && !this.right;
-            classes['-mr-' + this.currentWidth] = this.hidden && this.right;
+            classes['vue-ads-w-' + this.currentWidth] = true;
+            classes['vue-ads-z-' + this.zIndex] = true;
+            classes['vue-ads--ml-' + this.currentWidth] = this.hidden && !this.right;
+            classes['vue-ads--mr-' + this.currentWidth] = this.hidden && this.right;
 
             return classes;
         },
 
         drawerContainerClasses () {
             let classes = {
-                fixed: this.fixed,
-                'pin-t': this.fixed,
+                'vue-ads-fixed': this.fixed,
+                'vue-ads-pin-t': this.fixed,
             };
 
-            classes['w-' + this.currentWidth] = true;
-            classes['z-' + this.zIndex] = true;
-            classes['pt-' + this.$parent.$data.toolbar.height] = this.paddingTop;
-            classes['pb-' + this.$parent.$data.footer.height] = this.paddingBottom;
+            classes['vue-ads-w-' + this.currentWidth] = true;
+            classes['vue-ads-z-' + this.zIndex] = true;
+            classes['vue-ads-pt-' + this.$parent.$data.toolbar.height] = this.paddingTop;
+            classes['vue-ads-pb-' + this.$parent.$data.footer.height] = this.paddingBottom;
 
             return classes;
         },
     },
 
     watch: {
-        minified: 'updateParent',
         hidden: 'updateParent',
+        minified: {
+            handler: 'updateParent',
+            immediate: true,
+        },
         window: 'updateWindow',
         responsive: {
             handler: 'setupEventListener',
@@ -172,7 +175,6 @@ export default {
     },
 
     mounted () {
-        this.updateParent();
         if (this.responsive) {
             this.resizeWindow();
         }
@@ -259,7 +261,7 @@ export default {
 </script>
 
 <style scoped>
-.transition {
+.vue-ads-transition {
     transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
     -webkit-transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
     -moz-transition: width 0.2s, margin-left 0.2s, margin-right 0.2s;
