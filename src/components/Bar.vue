@@ -85,16 +85,15 @@ export default {
 
     watch: {
         fixed: 'updateParent',
-        height: 'updateParent',
+        height: {
+            handler: 'updateParent',
+            immediate: true,
+        },
     },
 
     created () {
         this.staticClass = this.$vnode.data.staticClass;
         this.$vnode.data.staticClass = '';
-    },
-
-    mounted () {
-        this.updateParent();
     },
 
     methods: {

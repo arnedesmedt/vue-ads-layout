@@ -162,8 +162,11 @@ export default {
     },
 
     watch: {
-        minified: 'updateParent',
         hidden: 'updateParent',
+        minified: {
+            handler: 'updateParent',
+            immediate: true,
+        },
         window: 'updateWindow',
         responsive: {
             handler: 'setupEventListener',
@@ -172,7 +175,6 @@ export default {
     },
 
     mounted () {
-        this.updateParent();
         if (this.responsive) {
             this.resizeWindow();
         }
