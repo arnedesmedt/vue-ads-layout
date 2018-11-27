@@ -1,6 +1,6 @@
 <template>
     <div
-        class="cursor-pointer"
+        class="vue-ads-cursor-pointer"
         @click="click"
     >
         <slot>
