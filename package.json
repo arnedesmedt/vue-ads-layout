@@ -40,11 +40,6 @@
     "vue-cli-plugin-ads-readme": "^1.0.4",
     "vue-template-compiler": "^2.5.17"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/arnedesmedt/vue-ads-layout.git"
