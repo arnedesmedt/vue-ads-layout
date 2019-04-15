@@ -231,10 +231,8 @@ The drawer component is used to create a drawers on the left and right side of y
 ##### Properties
 
 - `fixed`: *(type: boolean, default: false)* Indicates if the drawer is positioned fixed.
-- `width`: *(type: number, default: 64)* If you want to increase the default width, add this option.
-Only use the valid, numeric [Tailwindcss width options](https://tailwindcss.com/docs/width)
-- `minified-width`: *(type: number, default: 16)* If you want to increase the minified width, add this option.
-Only use the valid, numeric [Tailwindcss width options](https://tailwindcss.com/docs/width)
+- `width`: *(type: string, default: '16rem')* If you want to increase/decrease the default width, add this option.
+- `minified-width`: *(type: string, default: '4rem')* If you want to increase/decrease the minified width, add this option.
 - `minified`: *(type: boolean, default: false)* Indicates if the drawer is minified. 
 Be careful if you use, the minified and hidden properties on initialization.
 If the responsive property is true, it's possible it will override it immediately.
@@ -265,7 +263,7 @@ the drawer will hide, if responsive is set to true.
  - `fixed`: *(type: boolean)* Indicates if the drawer is positioned fixed.
  - `minified`: *(type: boolean)* Indicates if the drawer is minified.
  - `hidden`: *(type: boolean)* Indicates if the drawer is hidden.
- - `width`: *(type: number)* the current numeric [tailwindcss width](https://tailwindcss.com/docs/width)
+ - `width`: *(type: string)* the current width.
  
  For example if you want to use the VueAdsMinifyButton on the bottom of the bar to minify it,
  use the following template.
