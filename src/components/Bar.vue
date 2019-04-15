@@ -5,6 +5,7 @@
     >
         <div
             :class="barContainerClasses"
+            :style="barContainerStyles"
             class="vue-ads-flex vue-ads-flex-col vue-ads-justify-center vue-ads-transition"
         >
             <slot>
@@ -64,8 +65,6 @@ export default {
                 'vue-ads-w-full': !this.fixed || this.$parent.$props.fullBar,
             };
 
-            classes['vue-ads-inset-l-' + this.$parent.$data['left-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
-            classes['vue-ads-inset-r-' + this.$parent.$data['right-drawer'].width] = this.fixed && !this.$parent.$props.fullBar;
             classes['vue-ads-h-' + this.height] = true;
             classes['vue-ads-z-' + this.zIndex] = true;
 
@@ -76,6 +75,17 @@ export default {
             }
 
             return classes;
+        },
+
+        barContainerStyles () {
+            let styles = {};
+
+            if (this.fixed && !this.$parent.$props.fullBar) {
+                styles['left'] = this.$parent.$data['left-drawer'].width;
+                styles['right'] = this.$parent.$data['right-drawer'].width;
+            }
+
+            return styles;
         },
 
         zIndex () {
