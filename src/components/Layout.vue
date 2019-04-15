@@ -2,40 +2,48 @@
     <div
         :class="layoutClasses"
     >
-        <slot
-            v-if="fullBar"
-            name="toolbar"/>
-        <slot
-            v-else
-            name="left-drawer"/>
+        <div>
+            <slot
+                v-if="fullBar"
+                name="toolbar"/>
+            <slot
+                v-else
+                name="left-drawer"/>
+        </div>
         <div
             :class="middleClasses"
             class="vue-ads-flex-grow vue-ads-flex"
         >
-            <slot
-                v-if="fullBar"
-                name="left-drawer"/>
-            <slot
-                v-else
-                name="toolbar"/>
+            <div>
+                <slot
+                    v-if="fullBar"
+                    name="left-drawer"/>
+                <slot
+                    v-else
+                    name="toolbar"/>
+            </div>
             <div
                 class="vue-ads-flex-grow relative"
             >
                 <slot/>
             </div>
+            <div>
+                <slot
+                    v-if="fullBar"
+                    name="right-drawer"/>
+                <slot
+                    v-else
+                    name="footer"/>
+            </div>
+        </div>
+        <div>
             <slot
                 v-if="fullBar"
-                name="right-drawer"/>
+                name="footer"/>
             <slot
                 v-else
-                name="footer"/>
+                name="right-drawer"/>
         </div>
-        <slot
-            v-if="fullBar"
-            name="footer"/>
-        <slot
-            v-else
-            name="right-drawer"/>
     </div>
 </template>
 
