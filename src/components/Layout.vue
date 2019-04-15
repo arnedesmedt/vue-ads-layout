@@ -1,7 +1,6 @@
 <template>
     <div
         :class="layoutClasses"
-        class="vue-ads-w-full vue-ads-max-w-screen vue-ads-min-h-screen vue-ads-overflow-x-hidden vue-ads-flex"
     >
         <div>
             <slot
@@ -57,7 +56,11 @@ export default {
     props: {
         fullBar: {
             type: Boolean,
-            required: false,
+            default: true,
+        },
+
+        fullHeight: {
+            type: Boolean,
             default: true,
         },
     },
@@ -86,6 +89,11 @@ export default {
             return {
                 'vue-ads-flex-col': this.fullBar,
                 'vue-ads-flex-row': !this.fullBar,
+                'vue-ads-w-full': true,
+                'vue-ads-max-w-screen': true,
+                'vue-ads-min-h-screen': this.fullHeight,
+                'vue-ads-overflow-x-hidden': true,
+                'vue-ads-flex': true,
             };
         },
 
