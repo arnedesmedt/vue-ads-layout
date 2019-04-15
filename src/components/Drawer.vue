@@ -1,10 +1,12 @@
 <template>
     <div
         :class="drawerClasses"
+        :style="drawerStyles"
         class="vue-ads-h-full vue-ads-transition"
     >
         <div
             :class="drawerContainerClasses"
+            :style="drawerContainerStyles"
             class="vue-ads-flex vue-ads-flex-col vue-ads-h-full"
         >
             <slot
@@ -48,15 +50,15 @@ export default {
         },
 
         width: {
-            type: Number,
+            type: String,
             required: false,
-            default: 64,
+            default: '16rem',
         },
 
         minifiedWidth: {
-            type: Number,
+            type: String,
             required: false,
-            default: 16,
+            default: '4rem',
         },
 
         minified: {
@@ -138,12 +140,21 @@ export default {
         drawerClasses () {
             let classes = {};
 
-            classes['vue-ads-w-' + this.currentWidth] = true;
             classes['vue-ads-z-' + this.zIndex] = true;
-            classes['vue-ads--ml-' + this.currentWidth] = this.hidden && !this.right;
-            classes['vue-ads--mr-' + this.currentWidth] = this.hidden && this.right;
 
             return classes;
+        },
+
+        drawerStyles () {
+            let styles = {};
+
+            styles['width'] = this.currentWidth;
+
+            if (this.hidden) {
+                styles[`margin-${this.right ? 'right' : 'left'}`] = `-${this.currentWidth}`;
+            }
+
+            return styles;
         },
 
         drawerContainerClasses () {
@@ -152,12 +163,19 @@ export default {
                 'vue-ads-pin-t': this.fixed,
             };
 
-            classes['vue-ads-w-' + this.currentWidth] = true;
             classes['vue-ads-z-' + this.zIndex] = true;
             classes['vue-ads-pt-' + this.$parent.$data.toolbar.height] = this.paddingTop;
             classes['vue-ads-pb-' + this.$parent.$data.footer.height] = this.paddingBottom;
 
             return classes;
+        },
+
+        drawerContainerStyles () {
+            let styles = {};
+
+            styles['width'] = `${this.currentWidth}px`;
+
+            return styles;
         },
     },
 
