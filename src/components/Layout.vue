@@ -59,7 +59,7 @@ export default {
             default: true,
         },
 
-        fullHeight: {
+        fullScreen: {
             type: Boolean,
             default: true,
         },
@@ -90,9 +90,9 @@ export default {
                 'vue-ads-flex-col': this.fullBar,
                 'vue-ads-flex-row': !this.fullBar,
                 'vue-ads-w-full': true,
-                'vue-ads-max-w-screen': true,
-                'vue-ads-min-h-screen': this.fullHeight,
-                'vue-ads-overflow-x-hidden': true,
+                'vue-ads-max-w-screen': this.fullScreen,
+                'vue-ads-min-h-screen': this.fullScreen,
+                'vue-ads-overflow-x-hidden': this.fullScreen,
                 'vue-ads-flex': true,
             };
         },
