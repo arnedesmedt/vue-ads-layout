@@ -12,7 +12,7 @@
     "bugs": {
         "url": "https://github.com/arnedesmedt/vue-ads-layout/issues"
     },
-    "version": "1.4.7",
+    "version": "1.4.8",
     "main": "./dist/vue-ads-layout.common.js",
     "files": [
         "/dist"
