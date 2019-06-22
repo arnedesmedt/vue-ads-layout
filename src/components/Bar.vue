@@ -26,19 +26,16 @@ export default {
     props: {
         fixed: {
             type: Boolean,
-            required: false,
             default: false,
         },
 
         height: {
             type: Number,
-            required: false,
             default: 16,
         },
 
         footer: {
             type: Boolean,
-            required: false,
             default: false,
         },
     },
@@ -61,7 +58,7 @@ export default {
         barContainerClasses () {
             let classes = {
                 'vue-ads-fixed': this.fixed,
-                'vue-ads-pin-b': this.footer,
+                'vue-ads-bottom-0': this.footer,
                 'vue-ads-w-full': !this.fixed || this.$parent.$props.fullBar,
             };
 

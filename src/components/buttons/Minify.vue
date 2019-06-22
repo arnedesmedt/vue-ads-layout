@@ -30,7 +30,6 @@ export default {
 
         right: {
             type: Boolean,
-            required: false,
             default: false,
         },
     },

@@ -45,24 +45,20 @@ export default {
     props: {
         fixed: {
             type: Boolean,
-            required: false,
             default: false,
         },
 
         width: {
             type: String,
-            required: false,
             default: '16rem',
         },
 
         minifiedWidth: {
             type: String,
-            required: false,
             default: '4rem',
         },
 
         minified: {
-            required: false,
             default: false,
             validator: (value) => {
                 return value === null || typeof value === 'boolean';
@@ -70,7 +66,6 @@ export default {
         },
 
         hidden: {
-            required: false,
             default: false,
             validator: (value) => {
                 return value === null || typeof value === 'boolean';
@@ -79,25 +74,21 @@ export default {
 
         minifyOn: {
             type: Number,
-            required: false,
             default: 768,
         },
 
         hideOn: {
             type: Number,
-            required: false,
-            default: 576,
+            default: 640,
         },
 
         responsive: {
             type: Boolean,
-            required: false,
             default: true,
         },
 
         right: {
             type: Boolean,
-            required: false,
             default: false,
         },
     },
@@ -160,7 +151,7 @@ export default {
         drawerContainerClasses () {
             let classes = {
                 'vue-ads-fixed': this.fixed,
-                'vue-ads-pin-t': this.fixed,
+                'vue-ads-top-0': this.fixed,
             };
 
             classes['vue-ads-z-' + this.zIndex] = true;

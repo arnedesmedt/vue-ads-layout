@@ -1,12 +1,12 @@
 <template>
     <div id="app">
         <vue-ads-layout
-            :full-bar="false"
+            :full-bar="true"
         >
             <vue-ads-bar
                 slot="toolbar"
                 :fixed="true"
-                class="bg-red"
+                class="bg-red-600"
             >
                 <vue-ads-hide-button
                     slot="first"
@@ -23,14 +23,14 @@
                 slot="footer"
                 :fixed="true"
                 :footer="true"
-                class="bg-green"
+                class="bg-green-600"
             />
             <vue-ads-drawer
                 slot="left-drawer"
                 :fixed="true"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
-                class="bg-yellow"
+                class="bg-yellow-500"
                 @minify="minifyLeft"
                 @hide="hideLeft"
             >
@@ -43,11 +43,11 @@
             </vue-ads-drawer>
             <vue-ads-drawer
                 slot="right-drawer"
-                :fixed="false"
+                :fixed="true"
                 :minified="minifiedRight"
                 :hidden="hiddenRight"
                 :right="true"
-                class="bg-blue"
+                class="bg-blue-600"
                 @minify="minifyRight"
                 @hide="hideRight"
             >
@@ -122,8 +122,6 @@
 </template>
 
 <script>
-import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
-
 import VueAdsLayout from './components/Layout';
 import VueAdsBar from './components/Bar';
 import VueAdsDrawer from './components/Drawer';

@@ -49,6 +49,7 @@
 
 <script>
 import './../assets/css/tailwind.css';
+import './../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 export default {
     name: 'VueAdsLayout',
