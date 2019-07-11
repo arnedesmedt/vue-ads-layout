@@ -23,7 +23,7 @@
                     name="toolbar"/>
             </div>
             <div
-                class="vue-ads-flex-grow relative"
+                class="vue-ads-flex-grow vue-ads-relative"
             >
                 <slot/>
             </div>
